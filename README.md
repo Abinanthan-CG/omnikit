@@ -3,11 +3,11 @@
 > **The Universal Computer Swiss Army Knife.**  
 > Lightning-fast, privacy-first client-side micro-tools for creators, designers, audio engineers, writers, and developers.
 
-Omnikit bundles **35 essential, daily-driver micro-utilities** under one clean roof with zero ads, zero trackers, and zero server roundtrips. Everything executes 100% locally in your browser.
+Omnikit bundles **45 essential, daily-driver micro-utilities** under one clean roof with zero ads, zero trackers, and zero server roundtrips. Everything executes 100% locally in your browser.
 
 ---
 
-## ⚡ 35 High-Utility Micro-Tools Across 5 Disciplines
+## ⚡ 45 High-Utility Micro-Tools Across 5 Disciplines
 
 ### 🎬 Video & Film (6 Tools)
 - **SMPTE Timecode Calculator:** Frame-accurate timecode addition, subtraction, and duration calculations. Supports 23.976, 24, 25, 29.97 drop-frame, 30, and 60 fps without drift.
@@ -17,12 +17,13 @@ Omnikit bundles **35 essential, daily-driver micro-utilities** under one clean r
 - **Frame Rate Speed Converter:** Frame-for-frame scaling and playback speed percentage calculations across standard film, PAL, and NTSC framerates.
 - **Camera Lens & Sensor Crop Factor Calculator:** 35mm equivalent focal length and horizontal/vertical field of view calculations across Full Frame, Super 35, APS-C, and MFT sensors.
 
-### 🎵 Audio & Music (3 Tools)
+### 🎵 Audio & Music (4 Tools)
 - **BPM Delay & Reverb Sync:** Converts tempo into delay millisecond timings for standard, dotted, and triplet divisions (1/1 through 1/64 notes) plus reverb pre-delay and room decay sync guides.
 - **Musical Note to Frequency (Hz):** Bidirectional conversion between musical notes, MIDI numbers, and frequencies with custom A4 concert pitch tuning (432Hz, 440Hz, 442Hz).
 - **Tap Tempo BPM Detector:** High-precision interactive tap metronome calculating tempo from sequential keyboard or mouse taps.
+- **Pitch Shift & Tape Speed Transposer:** Calculate pitch shift ratios, semitone alterations, cent fine-tuning, and tape speed factors across vintage tape or digital sampler rates.
 
-### 🎨 Visual & UI Design (8 Tools)
+### 🎨 Visual & UI Design (11 Tools)
 - **WCAG 2.1 Color Contrast Checker:** Instant relative luminance and contrast ratio calculations up to 21:1. Assesses WCAG 2.1 AA and AAA compliance for normal text, large text, and graphical UI components.
 - **PX ↔ REM Converter:** Bidirectional pixel-to-REM converter with configurable root font size and quick-lookup reference scales.
 - **Color Format Converter:** Seamless conversions between HEX (#RRGGBB / #RRGGBBAA), RGB(A), and HSL(A) with live swatches and copyable CSS tokens.
@@ -31,8 +32,11 @@ Omnikit bundles **35 essential, daily-driver micro-utilities** under one clean r
 - **CSS Gradient Generator:** Interactive linear and radial gradient builder with angle control, custom color stops, and CSS snippet export.
 - **CSS Triangle Generator:** Directional CSS border triangle generator with configurable width, height, and color.
 - **Keyboard Keycode Inspector:** Live keyboard event properties visualizer displaying `event.keyCode`, `key`, `code`, and modifier flags.
+- **CSS Glassmorphism Generator:** Design modern frosted glass UI cards with backdrop blur, transparency, borders, and copyable CSS.
+- **Color Tint & Shade Palette Generator:** Generate complete 50-950 Tailwind-style color step scales from any base hex color.
+- **CSS Cursor Visualizer & Rule Generator:** Browse, test, and copy standard CSS cursor properties with interactive hover test area.
 
-### ✍️ Writing & Copy (7 Tools)
+### ✍️ Writing & Copy (8 Tools)
 - **Multi-Style Case Converter:** Transforms text across 9 casing conventions (camelCase, PascalCase, kebab-case, snake_case, CONSTANT_CASE, Title Case preserving minor words, Sentence case, etc.).
 - **Word & Reading Metrics:** Real-time counters for characters, words, sentences, paragraphs, average word length, reading time (200 WPM), and speaking time (130 WPM).
 - **Side-by-Side Text Diff Checker:** Instant line-by-line comparison highlighting additions, deletions, and unchanged text.
@@ -40,8 +44,9 @@ Omnikit bundles **35 essential, daily-driver micro-utilities** under one clean r
 - **Line Sorter & Deduplicator:** Alphabetical (A-Z, Z-A), numerical natural, and length sorting with duplicate stripping and blank-line removal.
 - **Lorem Ipsum Copy Generator:** Fast dummy placeholder text generator by paragraphs, sentences, or words with optional standard Latin opening.
 - **URL Slug & Filename Normalizer:** Sanitizes article headings and file names into SEO-friendly, clean URL slugs by stripping accents and special characters.
+- **Keyword Density & Frequency Analyzer:** Analyze word frequency counts, percentage densities, and SEO occurrence metrics in text.
 
-### 💻 Developer & Data (11 Tools)
+### 💻 Developer & Data (16 Tools)
 - **Unix Epoch Timestamp Converter:** Bidirectional conversion between Unix timestamps (seconds & milliseconds) and ISO 8601 UTC / local datetime strings, complete with live epoch clock.
 - **JSON Formatter & Auto-Fixer:** Formats, minifies, validates, and automatically repairs malformed JSON (single quotes, trailing commas, and unquoted keys).
 - **Base64 String Converter:** Encodes and decodes strings with standard Base64 or URL-safe encoding without padding.
@@ -53,6 +58,11 @@ Omnikit bundles **35 essential, daily-driver micro-utilities** under one clean r
 - **Crontab Humanizer & Explainer:** Translates 5-part cron schedules into clear plain English descriptions with quick-pick common presets.
 - **JWT Token Inspector:** Decodes and inspects JSON Web Token headers, payload claims, and expiration timestamps completely client-side.
 - **QR Code Generator:** Generates clean, scannable vector QR code SVGs for URLs, Wi-Fi credentials, or plain text without remote APIs.
+- **cURL Command to Code Converter:** Parse raw curl commands into executable JavaScript fetch, Node.js, and Python requests snippets.
+- **Docker Run to Compose Converter:** Convert single docker run commands into multi-service docker-compose.yml specifications.
+- **XML Formatter & Minifier:** Beautify indentation or collapse XML feeds, sitemaps, and payloads into minified single lines.
+- **YAML ↔ JSON Bidirectional Converter:** Convert between YAML manifests and JSON data with syntax formatting and error detection.
+- **Data Storage & Byte Unit Converter:** Convert data amounts between Bytes, KB, MB, GB, TB, and binary kibibytes (KiB, MiB, GiB).
 
 ---
 

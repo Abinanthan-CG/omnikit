@@ -11,7 +11,7 @@ import { WordMetricsView } from '../views/writing/WordMetricsView';
 import { TimestampView } from '../views/dev/TimestampView';
 import { JsonView } from '../views/dev/JsonView';
 
-// Expansion Views (Batch 1 & 2)
+// Expansion Views (Batch 1, 2, 3)
 import { Base64View } from '../views/dev/Base64View';
 import { UrlView } from '../views/dev/UrlView';
 import { HashView } from '../views/dev/HashView';
@@ -21,6 +21,11 @@ import { ChmodView } from '../views/dev/ChmodView';
 import { CronView } from '../views/dev/CronView';
 import { JwtView } from '../views/dev/JwtView';
 import { QrView } from '../views/dev/QrView';
+import { CurlView } from '../views/dev/CurlView';
+import { DockerView } from '../views/dev/DockerView';
+import { XmlView } from '../views/dev/XmlView';
+import { YamlView } from '../views/dev/YamlView';
+import { ByteView } from '../views/dev/ByteView';
 
 import { ColorConverterView } from '../views/design/ColorConverterView';
 import { SvgView } from '../views/design/SvgView';
@@ -28,15 +33,20 @@ import { BoxShadowView } from '../views/design/BoxShadowView';
 import { GradientView } from '../views/design/GradientView';
 import { TriangleView } from '../views/design/TriangleView';
 import { KeycodeView } from '../views/design/KeycodeView';
+import { GlassmorphismView } from '../views/design/GlassmorphismView';
+import { PaletteView } from '../views/design/PaletteView';
+import { CursorView } from '../views/design/CursorView';
 
 import { TextDiffView } from '../views/writing/TextDiffView';
 import { MarkdownPreviewView } from '../views/writing/MarkdownPreviewView';
 import { LineSorterView } from '../views/writing/LineSorterView';
 import { LoremView } from '../views/writing/LoremView';
 import { SlugView } from '../views/writing/SlugView';
+import { TextAnalysisView } from '../views/writing/TextAnalysisView';
 
 import { NoteFrequencyView } from '../views/audio/NoteFrequencyView';
 import { TapTempoView } from '../views/audio/TapTempoView';
+import { TransposerView } from '../views/audio/TransposerView';
 
 import { BitrateView } from '../views/video/BitrateView';
 import { SafeAreaView } from '../views/video/SafeAreaView';
@@ -445,5 +455,118 @@ export function initializeTools(): void {
     keywords: ['35mm equivalent', 'full frame', 'aps-c', 'super 35', 'mft'],
     component: FocalView,
     icon: '📷',
+  });
+
+  // ==========================================
+  // Batch 3 Registrations (Tools 36 - 45)
+  // ==========================================
+  registerTool({
+    id: 'curl-to-code',
+    title: 'cURL Command to Code Converter',
+    description: 'Parse raw curl commands into executable JavaScript fetch, Node.js, and Python requests snippets',
+    category: 'dev',
+    tags: ['curl', 'fetch', 'python', 'requests', 'http', 'api', 'dev', 'code'],
+    keywords: ['curl to fetch', 'curl to python', 'http request', 'api call'],
+    component: CurlView,
+    icon: '🌐',
+  });
+
+  registerTool({
+    id: 'docker-compose-converter',
+    title: 'Docker Run to Compose Converter',
+    description: 'Convert single docker run commands into multi-service docker-compose.yml specifications',
+    category: 'dev',
+    tags: ['docker', 'compose', 'container', 'devops', 'yaml', 'ports', 'volumes', 'dev'],
+    keywords: ['docker run', 'docker-compose', 'container orchestration'],
+    component: DockerView,
+    icon: '🐳',
+  });
+
+  registerTool({
+    id: 'xml-formatter',
+    title: 'XML Formatter & Minifier',
+    description: 'Beautify indentation or collapse XML feeds, sitemaps, and payloads into minified single lines',
+    category: 'dev',
+    tags: ['xml', 'format', 'beautify', 'minify', 'sitemap', 'rss', 'dev'],
+    keywords: ['xml prettifier', 'xml indent', 'clean xml'],
+    component: XmlView,
+    icon: '📰',
+  });
+
+  registerTool({
+    id: 'yaml-json',
+    title: 'YAML ↔ JSON Bidirectional Converter',
+    description: 'Convert between YAML manifests and JSON data with syntax formatting and error detection',
+    category: 'dev',
+    tags: ['yaml', 'json', 'convert', 'parser', 'kubernetes', 'config', 'dev'],
+    keywords: ['yaml to json', 'json to yaml', 'k8s yaml'],
+    component: YamlView,
+    icon: '🔄',
+  });
+
+  registerTool({
+    id: 'byte-converter',
+    title: 'Data Storage & Byte Unit Converter',
+    description: 'Convert data amounts between Bytes, KB, MB, GB, TB, and binary kibibytes (KiB, MiB, GiB)',
+    category: 'dev',
+    tags: ['byte', 'megabyte', 'gigabyte', 'storage', 'data', 'kib', 'mib', 'dev'],
+    keywords: ['byte converter', 'mb to gb', 'binary prefix', 'storage calculation'],
+    component: ByteView,
+    icon: '💾',
+  });
+
+  registerTool({
+    id: 'glassmorphism',
+    title: 'CSS Glassmorphism Generator',
+    description: 'Design modern frosted glass UI cards with backdrop blur, opacity, shadows, and copyable CSS',
+    category: 'design',
+    tags: ['glassmorphism', 'backdrop-filter', 'blur', 'css', 'card', 'frosted', 'design'],
+    keywords: ['glass ui', 'frosted glass', 'translucent card', 'css backdrop'],
+    component: GlassmorphismView,
+    icon: '🧊',
+  });
+
+  registerTool({
+    id: 'color-shades',
+    title: 'Color Tint & Shade Palette Generator',
+    description: 'Generate complete 50-950 Tailwind-style color step scales from any base hex color',
+    category: 'design',
+    tags: ['palette', 'tint', 'shade', 'tailwind', '50-950', 'color scale', 'design'],
+    keywords: ['tailwind colors', 'tints and shades', 'color steps', 'palette generator'],
+    component: PaletteView,
+    icon: '🎨',
+  });
+
+  registerTool({
+    id: 'css-cursor',
+    title: 'CSS Cursor Visualizer & Rule Generator',
+    description: 'Browse, test, and copy standard CSS cursor properties with live interactive pointer feedback',
+    category: 'design',
+    tags: ['cursor', 'pointer', 'css', 'hover', 'ui', 'feedback', 'design'],
+    keywords: ['cursor pointer', 'grab', 'not-allowed', 'cursor style'],
+    component: CursorView,
+    icon: '👆',
+  });
+
+  registerTool({
+    id: 'keyword-density',
+    title: 'Keyword Density & Frequency Analyzer',
+    description: 'Analyze word frequency counts, percentage densities, and SEO occurrence metrics in text',
+    category: 'writing',
+    tags: ['keyword', 'density', 'frequency', 'seo', 'content', 'word count', 'writing'],
+    keywords: ['seo keywords', 'word frequency', 'top words', 'density checker'],
+    component: TextAnalysisView,
+    icon: '📊',
+  });
+
+  registerTool({
+    id: 'audio-transposer',
+    title: 'Pitch Shift & Tape Speed Transposer',
+    description: 'Calculate pitch shift ratios, semitone alterations, cent tuning, and tape speed factors',
+    category: 'audio',
+    tags: ['pitch', 'transpose', 'semitones', 'cents', 'tape speed', 'varispeed', 'audio', 'music'],
+    keywords: ['pitch transposer', 'tape speed', 'playback rate', 'audio pitch'],
+    component: TransposerView,
+    icon: '🎚️',
   });
 }
