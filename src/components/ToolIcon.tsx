@@ -175,7 +175,19 @@ const TOOL_ICON_MAP: Record<string, LucideIcon> = {
   'white-noise-gen': Radio,
   'dtmf-dialer': Keyboard,
   'music-scales': Music,
-  'binaural-beats': Waves
+  'binaural-beats': Waves,
+
+  // Batch 14 (Design, UI & Text)
+  'color-harmonies': Palette,
+  'color-mixer': Sliders,
+  'neumorphism': Square,
+  'svg-data-uri': FileCode,
+  'svg-path-visualizer': Compass,
+  'aspect-ratio-padding': Scaling,
+  'string-dedup': ListFilter,
+  'text-rot13': Repeat,
+  'text-scramble': Type,
+  'decibel-ratio': Volume2
 };
 
 const CATEGORY_DEFAULT_ICONS: Record<ToolCategory, LucideIcon> = {

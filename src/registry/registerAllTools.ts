@@ -180,6 +180,19 @@ import {
   BinauralBeatsTool
 } from '../components/tools/batch13Tools';
 
+import {
+  ColorHarmoniesTool,
+  ColorMixerTool,
+  NeumorphismTool,
+  SvgDataUriTool,
+  SvgPathVisualizerTool,
+  AspectPaddingTool,
+  StringDedupTool,
+  TextRot13Tool,
+  TextScrambleTool,
+  DecibelRatioTool
+} from '../components/tools/batch14Tools';
+
 export function initializeTools(): void {
   // ==========================================
   // Video & Media (5 tools)
@@ -1825,5 +1838,118 @@ export function initializeTools(): void {
     keywords: ['binaural beat generator', 'brainwave synthesizer', 'alpha wave generator'],
     component: BinauralBeatsTool,
     icon: '🎧',
+  });
+
+  // ==========================================
+  // Batch 14: Design, UI & Text Utilities (10 tools)
+  // ==========================================
+  registerTool({
+    id: 'color-harmonies',
+    title: 'Color Harmony & Palette Generator',
+    description: 'Generate complementary, triadic, analogous, and split-harmonic color schemes based on color wheel theory',
+    category: 'design',
+    tags: ['color', 'palette', 'harmonies', 'complementary', 'triadic', 'analogous', 'wheel', 'design'],
+    keywords: ['color harmony generator', 'color wheel palette', 'complementary colors'],
+    component: ColorHarmoniesTool,
+    icon: '🎨',
+  });
+
+  registerTool({
+    id: 'color-mixer',
+    title: 'Color Blend & Tint/Shade Mixer',
+    description: 'Interpolate between two hex colors across variable weight percentages and generate tints and shades',
+    category: 'design',
+    tags: ['color', 'mixer', 'blend', 'interpolate', 'tints', 'shades', 'gradient', 'design'],
+    keywords: ['color blender', 'hex color mixer', 'tint shade generator'],
+    component: ColorMixerTool,
+    icon: '🎛️',
+  });
+
+  registerTool({
+    id: 'neumorphism',
+    title: 'Neumorphism Soft UI CSS Generator',
+    description: 'Generate realistic soft extruded, inset, and convex neumorphic UI shadows and CSS code',
+    category: 'design',
+    tags: ['neumorphism', 'soft ui', 'css', 'box shadow', 'bevel', 'convex', 'concave', 'design'],
+    keywords: ['neumorphic generator', 'soft ui css', 'neumorphism box shadow'],
+    component: NeumorphismTool,
+    icon: '🔲',
+  });
+
+  registerTool({
+    id: 'svg-data-uri',
+    title: 'SVG to CSS / HTML Data URI Converter',
+    description: 'Transform SVG markup into clean RFC 3986 URL-encoded data URIs and base64 strings for CSS background-image',
+    category: 'design',
+    tags: ['svg', 'data uri', 'base64', 'css background', 'encoder', 'vector', 'design'],
+    keywords: ['svg to data uri', 'svg to css background', 'svg url encode'],
+    component: SvgDataUriTool,
+    icon: '📄',
+  });
+
+  registerTool({
+    id: 'svg-path-visualizer',
+    title: 'SVG Path Inspector & Visualizer',
+    description: 'Parse, decompose, and preview raw SVG path d attributes with bounding box and segment metrics',
+    category: 'design',
+    tags: ['svg', 'path', 'visualizer', 'd attribute', 'vector', 'inspector', 'curves', 'design'],
+    keywords: ['svg path preview', 'svg d attribute parser', 'svg path visualizer'],
+    component: SvgPathVisualizerTool,
+    icon: '🧭',
+  });
+
+  registerTool({
+    id: 'aspect-ratio-padding',
+    title: 'Intrinsic Aspect Ratio Padding-Top Calculator',
+    description: 'Calculate responsive intrinsic CSS padding-bottom/top percentages to prevent layout shifts (CLS)',
+    category: 'design',
+    tags: ['aspect ratio', 'padding hack', 'responsive', 'cls', 'layout shift', 'css', 'design'],
+    keywords: ['aspect ratio padding', 'intrinsic ratio css', 'cumulative layout shift fix'],
+    component: AspectPaddingTool,
+    icon: '📐',
+  });
+
+  registerTool({
+    id: 'string-dedup',
+    title: 'Line & Word Deduplication Tool',
+    description: 'Deduplicate, count frequencies, trim whitespace, and sort text lines or delimited token lists',
+    category: 'writing',
+    tags: ['dedup', 'lines', 'words', 'unique', 'frequency', 'duplicates', 'text', 'writing'],
+    keywords: ['remove duplicate lines', 'deduplicate text', 'count unique lines'],
+    component: StringDedupTool,
+    icon: '📋',
+  });
+
+  registerTool({
+    id: 'text-rot13',
+    title: 'ROT13 / ROT47 & Substitution Cipher Studio',
+    description: 'Obfuscate and decode text with standard Caesar substitution ciphers (ROT13, ROT47, ROT5, and ROT18)',
+    category: 'writing',
+    tags: ['rot13', 'rot47', 'rot5', 'caesar', 'cipher', 'obfuscation', 'crypto', 'writing'],
+    keywords: ['rot13 decoder', 'rot47 cipher', 'caesar substitution'],
+    component: TextRot13Tool,
+    icon: '🔁',
+  });
+
+  registerTool({
+    id: 'text-scramble',
+    title: 'Typoglycemia Text Scrambler',
+    description: 'Scramble interior word letters while preserving first and last characters for cognitive readability experiments',
+    category: 'writing',
+    tags: ['scramble', 'typoglycemia', 'anagram', 'cognitive', 'reading', 'letters', 'writing'],
+    keywords: ['typoglycemia generator', 'word scrambler', 'scramble text readable'],
+    component: TextScrambleTool,
+    icon: '🔤',
+  });
+
+  registerTool({
+    id: 'decibel-ratio',
+    title: 'Decibel (dB) Power & Voltage Ratio Calculator',
+    description: 'Convert between decibels (dB), voltage/amplitude gain (20 log10), and power ratio (10 log10)',
+    category: 'audio',
+    tags: ['decibel', 'db', 'gain', 'voltage ratio', 'power ratio', 'amplitude', 'acoustics', 'audio'],
+    keywords: ['db to ratio', 'voltage gain db', 'power ratio decibels'],
+    component: DecibelRatioTool,
+    icon: '🔊',
   });
 }
