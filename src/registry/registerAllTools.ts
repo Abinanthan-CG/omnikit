@@ -94,6 +94,21 @@ import { SafeAreaView } from '../views/video/SafeAreaView';
 import { FpsConverterView } from '../views/video/FpsConverterView';
 import { FocalView } from '../views/video/FocalView';
 
+import { MimeView } from '../views/dev/MimeView';
+import { MinifyView } from '../views/dev/MinifyView';
+import { ColorSnifferView } from '../views/dev/ColorSnifferView';
+import { NanoidView } from '../views/dev/NanoidView';
+
+import { TextShadowView } from '../views/design/TextShadowView';
+import { UnitsView } from '../views/design/UnitsView';
+
+import { CharStatsView } from '../views/writing/CharStatsView';
+import { ZeroWidthView } from '../views/writing/ZeroWidthView';
+
+import { SynthView } from '../views/audio/SynthView';
+
+import { ResScaleView } from '../views/video/ResScaleView';
+
 export function initializeTools(): void {
   // ==========================================
   // Video & Media (5 tools)
@@ -1061,5 +1076,118 @@ export function initializeTools(): void {
     keywords: ['angle of view', 'lens fov', 'sensor aov', 'camera geometry'],
     component: AovView,
     icon: '📷',
+  });
+
+  // ==========================================
+  // Batch 8 Tools (86-95)
+  // ==========================================
+  registerTool({
+    id: 'mime-types',
+    title: 'MIME Types & File Extensions Explorer',
+    description: 'Search standard MIME content types by file extension or content-type header with charset info',
+    category: 'dev',
+    tags: ['mime', 'content-type', 'extension', 'headers', 'file types', 'dev', 'http'],
+    keywords: ['mime type', 'extension lookup', 'content-type'],
+    component: MimeView,
+    icon: '📄',
+  });
+
+  registerTool({
+    id: 'code-minifier',
+    title: 'HTML & CSS Code Minifier',
+    description: 'Strip comments, collapse whitespaces, and optimize HTML & CSS stylesheets with size reduction metrics',
+    category: 'dev',
+    tags: ['minify', 'compress', 'html', 'css', 'clean code', 'dev'],
+    keywords: ['html minifier', 'css minifier', 'code compressor'],
+    component: MinifyView,
+    icon: '🗜️',
+  });
+
+  registerTool({
+    id: 'color-sniffer',
+    title: 'Code Color Palette Sniffer',
+    description: 'Scan code, stylesheets, or markup to extract all Hex, RGB, and HSL color definitions into a visual palette',
+    category: 'dev',
+    tags: ['colors', 'extract', 'palette', 'sniffer', 'hex', 'rgb', 'dev', 'design'],
+    keywords: ['color extractor', 'find colors in css', 'palette sniffer'],
+    component: ColorSnifferView,
+    icon: '🎨',
+  });
+
+  registerTool({
+    id: 'nanoid-generator',
+    title: 'Nano ID & Compact UUID Generator',
+    description: 'Generate URL-safe, collision-resistant unique identifiers with customizable lengths and alphabets',
+    category: 'dev',
+    tags: ['nanoid', 'uuid', 'id generator', 'unique id', 'token', 'dev'],
+    keywords: ['nanoid generator', 'short uuid', 'random id'],
+    component: NanoidView,
+    icon: '🔑',
+  });
+
+  registerTool({
+    id: 'text-shadow',
+    title: 'CSS Text Shadow & Neon Glow Studio',
+    description: 'Design multi-layer text shadows, ambient glows, and neon sign effects with live copyable CSS',
+    category: 'design',
+    tags: ['text shadow', 'neon', 'glow', 'css', 'typography', 'design'],
+    keywords: ['css text-shadow', 'neon glow css', 'text glow generator'],
+    component: TextShadowView,
+    icon: '✨',
+  });
+
+  registerTool({
+    id: 'css-units',
+    title: 'CSS Length & Viewport Units Converter',
+    description: 'Convert between px, rem, em, %, vw, and vh based on customizable root font and viewport dimensions',
+    category: 'design',
+    tags: ['units', 'px to rem', 'rem to px', 'em', 'vw', 'vh', 'css', 'design'],
+    keywords: ['css units converter', 'px to rem converter', 'rem calculator'],
+    component: UnitsView,
+    icon: '📏',
+  });
+
+  registerTool({
+    id: 'char-distribution',
+    title: 'Character & Case Distribution',
+    description: 'Inspect character breakdowns, uppercase/lowercase balance, digits, punctuation, and ASCII counts',
+    category: 'writing',
+    tags: ['characters', 'case', 'stats', 'uppercase', 'lowercase', 'ascii', 'metrics', 'writing'],
+    keywords: ['character distribution', 'case counter', 'text stats'],
+    component: CharStatsView,
+    icon: '📊',
+  });
+
+  registerTool({
+    id: 'zero-width-cleaner',
+    title: 'Invisible & Zero-Width Character Cleaner',
+    description: 'Detect and purge zero-width spaces, non-breaking spaces, BOMs, and hidden unicode anomalies',
+    category: 'writing',
+    tags: ['zero width', 'invisible characters', 'clean text', 'bom', 'nbsp', 'writing', 'dev'],
+    keywords: ['remove zero width space', 'invisible character detector', 'clean hidden characters'],
+    component: ZeroWidthView,
+    icon: '👻',
+  });
+
+  registerTool({
+    id: 'tone-synthesizer',
+    title: 'Tone Synthesizer & Audio Oscillator',
+    description: 'Generate precise calibration sine waves, test tones, and analyze fundamental harmonic frequencies',
+    category: 'audio',
+    tags: ['oscillator', 'synth', 'sine wave', 'tone generator', 'test tone', 'frequency', 'audio'],
+    keywords: ['audio test tone', 'sine wave generator', 'frequency oscillator', 'tuning pitch'],
+    component: SynthView,
+    icon: '🔊',
+  });
+
+  registerTool({
+    id: 'video-res-scaler',
+    title: 'Video Resolution & Proxy Scaler',
+    description: 'Calculate proportional downscaling, proxy dimensions, aspect ratio parity, and pixel counts for video codecs',
+    category: 'video',
+    tags: ['resolution', 'scaler', 'proxy', 'video', 'downscale', '4k', '1080p', 'film'],
+    keywords: ['proxy resolution calculator', 'video scale', 'aspect ratio scaler'],
+    component: ResScaleView,
+    icon: '📐',
   });
 }
