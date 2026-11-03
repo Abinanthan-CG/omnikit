@@ -11,7 +11,7 @@ import { WordMetricsView } from '../views/writing/WordMetricsView';
 import { TimestampView } from '../views/dev/TimestampView';
 import { JsonView } from '../views/dev/JsonView';
 
-// Expansion Views (Batch 1, 2, 3, 4, 5, 6)
+// Expansion Views (Batch 1, 2, 3, 4, 5, 6, 7)
 import { Base64View } from '../views/dev/Base64View';
 import { UrlView } from '../views/dev/UrlView';
 import { HashView } from '../views/dev/HashView';
@@ -38,6 +38,10 @@ import { SubnetView } from '../views/dev/SubnetView';
 import { MacView } from '../views/dev/MacView';
 import { PasswordView } from '../views/dev/PasswordView';
 import { CsvView } from '../views/dev/CsvView';
+import { PortView } from '../views/dev/PortView';
+import { HttpStatusView } from '../views/dev/HttpStatusView';
+import { SchemaView } from '../views/dev/SchemaView';
+import { GitView } from '../views/dev/GitView';
 
 import { ColorConverterView } from '../views/design/ColorConverterView';
 import { SvgView } from '../views/design/SvgView';
@@ -54,6 +58,8 @@ import { BorderRadiusView } from '../views/design/BorderRadiusView';
 import { BezierView } from '../views/design/BezierView';
 import { ClipPathView } from '../views/design/ClipPathView';
 import { TransformView } from '../views/design/TransformView';
+import { FilterView } from '../views/design/FilterView';
+import { FlexboxView } from '../views/design/FlexboxView';
 
 import { TextDiffView } from '../views/writing/TextDiffView';
 import { MarkdownPreviewView } from '../views/writing/MarkdownPreviewView';
@@ -67,17 +73,21 @@ import { AltCaseView } from '../views/writing/AltCaseView';
 import { CipherView } from '../views/writing/CipherView';
 import { TruncateView } from '../views/writing/TruncateView';
 import { SymbolView } from '../views/writing/SymbolView';
+import { WordCloudView } from '../views/writing/WordCloudView';
+import { AffixView } from '../views/writing/AffixView';
 
 import { NoteFrequencyView } from '../views/audio/NoteFrequencyView';
 import { TapTempoView } from '../views/audio/TapTempoView';
 import { TransposerView } from '../views/audio/TransposerView';
 import { MetronomeView } from '../views/audio/MetronomeView';
 import { DecibelView } from '../views/audio/DecibelView';
+import { IntervalView } from '../views/audio/IntervalView';
 
 import { ShutterView } from '../views/video/ShutterView';
 import { RecordTimeView } from '../views/video/RecordTimeView';
 import { TimelapseView } from '../views/video/TimelapseView';
 import { SunView } from '../views/video/SunView';
+import { AovView } from '../views/video/AovView';
 
 import { BitrateView } from '../views/video/BitrateView';
 import { SafeAreaView } from '../views/video/SafeAreaView';
@@ -938,5 +948,118 @@ export function initializeTools(): void {
     keywords: ['golden hour calculator', 'blue hour', 'magic hour', 'solar noon'],
     component: SunView,
     icon: '🌅',
+  });
+
+  // ==========================================
+  // Batch 7 Registrations (Tools 76 - 85)
+  // ==========================================
+  registerTool({
+    id: 'port-lookup',
+    title: 'TCP / UDP Port Directory & Lookup',
+    description: 'Quick reference directory for standard IANA network ports, databases, and dev server sockets',
+    category: 'dev',
+    tags: ['port', 'tcp', 'udp', 'network', 'iana', 'service', 'socket', 'dev'],
+    keywords: ['port lookup', 'common ports', 'network ports', 'port number'],
+    component: PortView,
+    icon: '🔌',
+  });
+
+  registerTool({
+    id: 'http-status',
+    title: 'HTTP Status Codes Explorer',
+    description: 'Interactive directory of official RFC HTTP status response codes with descriptions and categories',
+    category: 'dev',
+    tags: ['http', 'status', 'codes', '200', '404', '500', 'rfc', 'network', 'dev'],
+    keywords: ['http status codes', '404 not found', '500 server error', 'http response'],
+    component: HttpStatusView,
+    icon: '🌐',
+  });
+
+  registerTool({
+    id: 'json-schema',
+    title: 'JSON Schema Inferrer & Generator',
+    description: 'Infer Draft-07 JSON Schema specifications including types, nested objects, and required fields from JSON',
+    category: 'dev',
+    tags: ['json', 'schema', 'infer', 'types', 'spec', 'generator', 'dev'],
+    keywords: ['json schema', 'infer schema', 'json validator'],
+    component: SchemaView,
+    icon: '📐',
+  });
+
+  registerTool({
+    id: 'git-cheat-sheet',
+    title: 'Git Cheat Sheet & Command Generator',
+    description: 'Quick reference and copyable commands for undoing commits, squashing, stashing, and safe force pushing',
+    category: 'dev',
+    tags: ['git', 'cheat sheet', 'vcs', 'commit', 'rebase', 'stash', 'undo', 'dev'],
+    keywords: ['git undo commit', 'git cheat sheet', 'git commands'],
+    component: GitView,
+    icon: '🌿',
+  });
+
+  registerTool({
+    id: 'css-filters',
+    title: 'CSS Filter Effects Studio',
+    description: 'Visual studio for CSS image filters (blur, contrast, grayscale, hue-rotate, sepia) with instant CSS snippets',
+    category: 'design',
+    tags: ['filter', 'blur', 'contrast', 'brightness', 'sepia', 'css', 'design'],
+    keywords: ['css filter', 'image effects', 'css blur', 'filter playground'],
+    component: FilterView,
+    icon: '🪄',
+  });
+
+  registerTool({
+    id: 'flexbox-studio',
+    title: 'CSS Flexbox Layout Studio',
+    description: 'Interactive flexbox layout playground generating standard CSS rules and Tailwind utility classes',
+    category: 'design',
+    tags: ['flexbox', 'flex', 'layout', 'justify', 'align', 'css', 'tailwind', 'design'],
+    keywords: ['flexbox generator', 'css flex', 'flex layout', 'tailwind flex'],
+    component: FlexboxView,
+    icon: '📦',
+  });
+
+  registerTool({
+    id: 'word-cloud',
+    title: 'Word Cloud & Frequency Analyzer',
+    description: 'Analyze key recurring themes and generate a visual proportional weighted word cloud from prose',
+    category: 'writing',
+    tags: ['word cloud', 'frequency', 'themes', 'analysis', 'weights', 'writing'],
+    keywords: ['word cloud', 'term frequency', 'tag cloud'],
+    component: WordCloudView,
+    icon: '☁️',
+  });
+
+  registerTool({
+    id: 'affix-tool',
+    title: 'Batch Line Prefix & Suffix Tool',
+    description: 'Batch prepend and append custom prefixes, suffixes, quotes, or sequential numbers to each line',
+    category: 'writing',
+    tags: ['prefix', 'suffix', 'affix', 'lines', 'batch', 'append', 'prepend', 'writing'],
+    keywords: ['add prefix to lines', 'batch suffix', 'line numbers'],
+    component: AffixView,
+    icon: '🏷️',
+  });
+
+  registerTool({
+    id: 'musical-intervals',
+    title: 'Musical Interval & Chord Frequencies',
+    description: 'Calculate exact frequencies and mathematical ratios for musical intervals and harmonic triads',
+    category: 'audio',
+    tags: ['intervals', 'chords', 'harmonics', 'triad', 'frequency', 'ratios', 'audio', 'music'],
+    keywords: ['musical intervals', 'chord frequencies', 'harmonic ratios'],
+    component: IntervalView,
+    icon: '🎼',
+  });
+
+  registerTool({
+    id: 'lens-aov',
+    title: 'Camera Lens Angle of View (AoV) Geometry',
+    description: 'Calculate horizontal, vertical, and diagonal field of view angles across cinema sensor standards',
+    category: 'video',
+    tags: ['aov', 'angle of view', 'fov', 'lens', 'focal length', 'sensor', 'cinema', 'video', 'film'],
+    keywords: ['angle of view', 'lens fov', 'sensor aov', 'camera geometry'],
+    component: AovView,
+    icon: '📷',
   });
 }
