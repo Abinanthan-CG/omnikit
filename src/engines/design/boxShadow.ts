@@ -1,4 +1,4 @@
-import { hexToRgb } from './colorConverter';
+import { hexToRgb } from './colorConverter.ts';
 
 export interface ShadowLayer {
   x: number;
