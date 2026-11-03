@@ -11,23 +11,37 @@ import { WordMetricsView } from '../views/writing/WordMetricsView';
 import { TimestampView } from '../views/dev/TimestampView';
 import { JsonView } from '../views/dev/JsonView';
 
-// Expansion Views
+// Expansion Views (Batch 1 & 2)
 import { Base64View } from '../views/dev/Base64View';
 import { UrlView } from '../views/dev/UrlView';
 import { HashView } from '../views/dev/HashView';
 import { UuidView } from '../views/dev/UuidView';
 import { HtmlEntityView } from '../views/dev/HtmlEntityView';
+import { ChmodView } from '../views/dev/ChmodView';
+import { CronView } from '../views/dev/CronView';
+import { JwtView } from '../views/dev/JwtView';
+import { QrView } from '../views/dev/QrView';
+
 import { ColorConverterView } from '../views/design/ColorConverterView';
 import { SvgView } from '../views/design/SvgView';
 import { BoxShadowView } from '../views/design/BoxShadowView';
+import { GradientView } from '../views/design/GradientView';
+import { TriangleView } from '../views/design/TriangleView';
+import { KeycodeView } from '../views/design/KeycodeView';
+
 import { TextDiffView } from '../views/writing/TextDiffView';
 import { MarkdownPreviewView } from '../views/writing/MarkdownPreviewView';
 import { LineSorterView } from '../views/writing/LineSorterView';
+import { LoremView } from '../views/writing/LoremView';
+import { SlugView } from '../views/writing/SlugView';
+
 import { NoteFrequencyView } from '../views/audio/NoteFrequencyView';
 import { TapTempoView } from '../views/audio/TapTempoView';
+
 import { BitrateView } from '../views/video/BitrateView';
 import { SafeAreaView } from '../views/video/SafeAreaView';
 import { FpsConverterView } from '../views/video/FpsConverterView';
+import { FocalView } from '../views/video/FocalView';
 
 export function initializeTools(): void {
   // ==========================================
@@ -318,5 +332,118 @@ export function initializeTools(): void {
     keywords: ['&amp;', '&lt;', '&gt;', '&quot;', 'xml', 'escape'],
     component: HtmlEntityView,
     icon: '🏷️',
+  });
+
+  // ==========================================
+  // Batch 2 Additions (10 tools -> 35 total)
+  // ==========================================
+  registerTool({
+    id: 'chmod-calculator',
+    title: 'Linux Chmod Permissions Calculator',
+    description: 'Calculate file permissions between octal (755, 644) and symbolic (rwxr-xr-x) notations',
+    category: 'dev',
+    tags: ['chmod', 'permissions', 'linux', 'unix', 'terminal', 'octal', 'symbolic', 'dev'],
+    keywords: ['755', '644', 'rwx', 'owner', 'group', 'security'],
+    component: ChmodView,
+    icon: '🛡️',
+  });
+
+  registerTool({
+    id: 'cron-humanizer',
+    title: 'Crontab Humanizer & Explainer',
+    description: 'Translate cryptic cron schedules into human English and explore common presets',
+    category: 'dev',
+    tags: ['cron', 'crontab', 'schedule', 'timer', 'automation', 'dev', 'sysadmin'],
+    keywords: ['crontab', 'schedule', 'interval', 'minutes', 'hours'],
+    component: CronView,
+    icon: '⏰',
+  });
+
+  registerTool({
+    id: 'jwt-decoder',
+    title: 'JWT Token Inspector',
+    description: 'Inspect JWT headers and claims safely client-side without sending tokens to any server',
+    category: 'dev',
+    tags: ['jwt', 'token', 'auth', 'oauth', 'bearer', 'decode', 'claims', 'dev'],
+    keywords: ['json web token', 'payload', 'header', 'expiration'],
+    component: JwtView,
+    icon: '🎫',
+  });
+
+  registerTool({
+    id: 'qr-code',
+    title: 'QR Code Generator',
+    description: 'Create clean, scannable vector QR codes client-side for links, text, and keys',
+    category: 'dev',
+    tags: ['qr', 'qrcode', 'matrix', 'barcode', 'generator', 'svg', 'scan', 'dev', 'design'],
+    keywords: ['qr code', 'svg qr', 'scanner', 'share link'],
+    component: QrView,
+    icon: '📱',
+  });
+
+  registerTool({
+    id: 'css-gradient',
+    title: 'CSS Gradient Generator',
+    description: 'Design smooth linear and radial CSS gradients with live preview and code export',
+    category: 'design',
+    tags: ['gradient', 'css', 'linear', 'radial', 'color', 'background', 'design'],
+    keywords: ['linear-gradient', 'radial-gradient', 'color stops', 'tailwind'],
+    component: GradientView,
+    icon: '🌈',
+  });
+
+  registerTool({
+    id: 'css-triangle',
+    title: 'CSS Triangle Generator',
+    description: 'Create pure CSS border triangles in any direction with zero extra markup',
+    category: 'design',
+    tags: ['triangle', 'css', 'borders', 'arrows', 'shapes', 'design'],
+    keywords: ['css triangle', 'tooltip arrow', 'pointer'],
+    component: TriangleView,
+    icon: '🔺',
+  });
+
+  registerTool({
+    id: 'keycode-info',
+    title: 'Keyboard Keycode Inspector',
+    description: 'Press any key on your keyboard to inspect JavaScript keycodes and event properties',
+    category: 'design',
+    tags: ['keycode', 'keyboard', 'event', 'key', 'code', 'which', 'shortcut', 'dev', 'design'],
+    keywords: ['event.keyCode', 'event.key', 'event.which', 'keypress'],
+    component: KeycodeView,
+    icon: '⌨️',
+  });
+
+  registerTool({
+    id: 'lorem-ipsum',
+    title: 'Lorem Ipsum Copy Generator',
+    description: 'Generate placeholder text by paragraphs, sentences, or words with single-click copy',
+    category: 'writing',
+    tags: ['lorem', 'ipsum', 'placeholder', 'dummy text', 'copy', 'mockup', 'writing'],
+    keywords: ['dummy copy', 'filler text', 'paragraphs', 'sentences'],
+    component: LoremView,
+    icon: '📄',
+  });
+
+  registerTool({
+    id: 'slugifier',
+    title: 'URL Slug & Filename Normalizer',
+    description: 'Clean titles and article names into web-standard slugs by removing special chars and accents',
+    category: 'writing',
+    tags: ['slug', 'url', 'filename', 'clean', 'seo', 'normalize', 'writing'],
+    keywords: ['slugify', 'kebab', 'url safe', 'seo friendly'],
+    component: SlugView,
+    icon: '🏷️',
+  });
+
+  registerTool({
+    id: 'focal-length',
+    title: 'Camera Lens & Crop Factor Calculator',
+    description: 'Calculate 35mm equivalent focal lengths and horizontal/vertical field of view',
+    category: 'video',
+    tags: ['focal length', 'lens', 'crop factor', 'camera', 'sensor', 'fov', 'video', 'film'],
+    keywords: ['35mm equivalent', 'full frame', 'aps-c', 'super 35', 'mft'],
+    component: FocalView,
+    icon: '📷',
   });
 }
