@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, Terminal, ShieldCheck } from 'lucide-react';
+import { Layers, Terminal, ShieldCheck } from 'lucide-react';
 
 interface HeaderProps {
   onOpenPalette: () => void;
@@ -13,54 +13,55 @@ export const Header: React.FC<HeaderProps> = ({
   onClearActiveTool,
 }) => {
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-neutral-800/80 bg-neutral-950/80 backdrop-blur-md">
+    <header className="sticky top-0 z-40 w-full border-b border-neutral-800/80 bg-neutral-950/90 backdrop-blur-md">
       <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between gap-4">
         {/* Brand */}
         <div className="flex items-center gap-3">
           <button
             onClick={onClearActiveTool}
-            className="flex items-center gap-2 group text-left focus:outline-none"
+            className="flex items-center gap-2.5 group text-left focus:outline-none"
           >
-            <div className="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 group-hover:bg-emerald-500/20 transition-colors">
-              <Sparkles className="w-4 h-4" />
+            <div className="w-8 h-8 rounded-lg bg-neutral-900 border border-neutral-800 flex items-center justify-center text-neutral-200 group-hover:border-neutral-700 transition-colors">
+              <Layers className="w-4 h-4 text-emerald-400" />
             </div>
             <div>
-              <span className="font-bold tracking-tight text-neutral-100 flex items-center gap-1.5">
+              <span className="font-semibold text-sm tracking-tight text-neutral-100 flex items-center gap-2">
                 Omnikit
-                <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                  100% Client-Side
+                <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-neutral-900 text-neutral-400 border border-neutral-800">
+                  125 tools
                 </span>
               </span>
             </div>
           </button>
 
           {activeToolTitle && (
-            <div className="hidden sm:flex items-center gap-2 text-sm text-neutral-400">
-              <span className="text-neutral-600">/</span>
-              <span className="text-neutral-200 font-medium">{activeToolTitle}</span>
+            <div className="hidden sm:flex items-center gap-2 text-xs text-neutral-400">
+              <span className="text-neutral-700">/</span>
+              <span className="text-neutral-200 font-medium truncate max-w-xs">{activeToolTitle}</span>
             </div>
           )}
         </div>
 
         {/* Global Search Trigger & Privacy Badge */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2.5">
           <button
             onClick={onOpenPalette}
-            className="flex items-center gap-2 px-3 py-1.5 text-xs rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-400 hover:text-neutral-200 hover:border-neutral-700 transition-all shadow-sm"
+            className="flex items-center gap-2 px-3 py-1.5 text-xs rounded-lg bg-neutral-900/90 border border-neutral-800 text-neutral-400 hover:text-neutral-200 hover:border-neutral-700 transition-all shadow-sm"
           >
             <Terminal className="w-3.5 h-3.5 text-neutral-500" />
-            <span>Search tools...</span>
+            <span className="hidden sm:inline">Search utilities...</span>
+            <span className="sm:hidden">Search</span>
             <kbd className="hidden sm:inline-block font-mono text-[10px] bg-neutral-800 text-neutral-400 px-1.5 py-0.5 rounded border border-neutral-700">
               Ctrl+K
             </kbd>
           </button>
 
           <div
-            title="Zero server calls. Every calculation, conversion, and file remains local in your browser."
-            className="hidden md:flex items-center gap-1.5 text-xs text-neutral-500 border border-neutral-800/60 px-2 py-1 rounded-md"
+            title="All operations execute locally in your browser. Zero network tracking or remote server calls."
+            className="hidden md:flex items-center gap-1.5 text-xs text-neutral-400 border border-neutral-800 px-2 py-1 rounded-md bg-neutral-900/40"
           >
             <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-            <span>Privacy Guard</span>
+            <span className="text-[11px] font-mono">Offline-First</span>
           </div>
         </div>
       </div>

@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Search, X, CornerDownLeft, Sparkles } from 'lucide-react';
+import { Search, X, CornerDownLeft } from 'lucide-react';
 import type { ToolDefinition, ToolCategory } from '../types/tool';
 import { filterToolList } from './paletteLogic';
+import { ToolIcon } from './ToolIcon';
 
 interface CommandPaletteProps {
   isOpen: boolean;
@@ -147,13 +148,13 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
                 >
                   <div className="flex items-center gap-3">
                     <div
-                      className={`w-9 h-9 rounded-lg flex items-center justify-center text-sm ${
+                      className={`w-9 h-9 rounded-lg flex items-center justify-center text-sm shrink-0 ${
                         isSelected
                           ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30'
                           : 'bg-neutral-800 border border-neutral-700/60 text-neutral-400'
                       }`}
                     >
-                      {tool.icon || <Sparkles className="w-4 h-4" />}
+                      <ToolIcon toolId={tool.id} category={tool.category} className="w-4 h-4" />
                     </div>
                     <div>
                       <div className="text-sm font-medium flex items-center gap-2">

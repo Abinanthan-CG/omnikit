@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { Copy, Check, RotateCcw, Sparkles } from 'lucide-react';
+import { Copy, Check, RotateCcw } from 'lucide-react';
 import type { ToolCategory } from '../types/tool';
+import { ToolIcon } from './ToolIcon';
 
 interface ToolShellProps {
   title: string;
   category: ToolCategory;
   description: string;
+  toolId?: string;
   icon?: string;
   onReset?: () => void;
   children: React.ReactNode;
@@ -15,7 +17,7 @@ export const ToolShell: React.FC<ToolShellProps> = ({
   title,
   category,
   description,
-  icon,
+  toolId,
   onReset,
   children,
 }) => {
@@ -24,13 +26,13 @@ export const ToolShell: React.FC<ToolShellProps> = ({
       {/* Tool Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-neutral-800 gap-4">
         <div className="flex items-start gap-3">
-          <div className="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-xl shrink-0">
-            {icon || <Sparkles className="w-5 h-5 text-emerald-400" />}
+          <div className="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-neutral-300 shrink-0">
+            <ToolIcon toolId={toolId} category={category} className="w-5 h-5 text-neutral-200" />
           </div>
           <div>
             <div className="flex items-center gap-2">
               <h2 className="text-xl font-bold tracking-tight text-neutral-100">{title}</h2>
-              <span className="text-[10px] uppercase font-mono px-2 py-0.5 rounded-full bg-neutral-900 text-neutral-400 border border-neutral-800">
+              <span className="text-[10px] uppercase font-mono px-2 py-0.5 rounded bg-neutral-900 text-neutral-400 border border-neutral-800">
                 {category}
               </span>
             </div>

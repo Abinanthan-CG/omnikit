@@ -1,0 +1,179 @@
+import React from 'react';
+import {
+  Clock, Maximize2, HardDrive, Crop, FastForward, Timer, Music, Activity,
+  Contrast, Ruler, Pipette, FileCode, Layers, Type, BarChart3, GitCompare,
+  FileText, ListFilter, Calendar, FileJson, Binary, Link2, Fingerprint, Key,
+  Code, Shield, QrCode, Palette, Triangle, Keyboard, AlignLeft, Link,
+  Camera, Terminal, Boxes, ArrowLeftRight, Square, MousePointer, Search,
+  Sliders, Database, Laptop, Maximize, Table, BookOpen, Lock, Code2,
+  Hash, Network, Cpu, ShieldCheck, FileSpreadsheet, Server, FileCheck,
+  GitBranch, Scissors, Wand2, Layout, Cloud, PlusCircle, Volume2,
+  FileType, Minimize2, Eye, Gauge, Box, Plane, Quote, Radio,
+  AlertTriangle, Tag, Bookmark, ToggleLeft, Share2, Repeat, Sun,
+  Compass, Focus, Film, Disc, SunMedium, Scaling,
+  RectangleHorizontal, Target, FileAudio, AudioWaveform, Waves,
+  CaseUpper, KeyRound, Smile, PieChart, Eraser,
+  Scroll, Flame, SlidersHorizontal, Bell, LucideIcon
+} from 'lucide-react';
+import type { ToolCategory } from '../types/tool';
+
+const TOOL_ICON_MAP: Record<string, LucideIcon> = {
+  // Video & Film (15)
+  'timecode': Clock,
+  'aspect-ratio': Maximize2,
+  'bitrate': HardDrive,
+  'safe-area': Crop,
+  'fps-converter': FastForward,
+  'focal-length': Camera,
+  'shutter-calculator': Focus,
+  'record-time-estimator': Disc,
+  'timelapse-calculator': Timer,
+  'golden-hour': Sun,
+  'lens-aov': Compass,
+  'video-res-scaler': Scaling,
+  'letterbox-matte': RectangleHorizontal,
+  'depth-of-field': Target,
+  'lighting-contrast-ratio': SunMedium,
+
+  // Audio & Music (11)
+  'bpm-delay': Timer,
+  'note-frequency': Music,
+  'tap-tempo': Activity,
+  'audio-transposer': Sliders,
+  'metronome': Bell,
+  'decibel-calculator': Volume2,
+  'musical-intervals': FileAudio,
+  'tone-synthesizer': Waves,
+  'bpm-to-hz': Gauge,
+  'sample-rate-calculator': AudioWaveform,
+  'audio-headroom': SlidersHorizontal,
+
+  // Visual & UI Design (27)
+  'contrast': Contrast,
+  'px-rem': Ruler,
+  'color-converter': Pipette,
+  'svg-tools': FileCode,
+  'box-shadow': Layers,
+  'css-gradient': Palette,
+  'css-triangle': Triangle,
+  'keycode-info': Keyboard,
+  'glassmorphism': Square,
+  'color-shades': Palette,
+  'css-cursor': MousePointer,
+  'clamp-calculator': Ruler,
+  'aspect-ratio-css': Maximize,
+  'border-radius-blob': Box,
+  'cubic-bezier': Activity,
+  'css-clip-path': Scissors,
+  'transform-matrix': Layout,
+  'css-filters': Wand2,
+  'flexbox-studio': Layout,
+  'text-shadow': Type,
+  'css-units': Ruler,
+  'golden-ratio': Compass,
+  'box-sizing': Box,
+  'css-grid': Layout,
+  'css-ribbon': Bookmark,
+  'neon-glow-card': Flame,
+  'color-blindness-simulator': Eye,
+
+  // Writing & Copy (24)
+  'case-converter': Type,
+  'word-metrics': BarChart3,
+  'text-diff': GitCompare,
+  'markdown-preview': FileText,
+  'line-sorter': ListFilter,
+  'lorem-ipsum': AlignLeft,
+  'slugifier': Link,
+  'keyword-density': Search,
+  'markdown-table': Table,
+  'readability-score': BookOpen,
+  'alt-case': CaseUpper,
+  'caesar-cipher': KeyRound,
+  'truncate-text': Scissors,
+  'unicode-symbols': Smile,
+  'word-cloud': Cloud,
+  'affix-tool': PlusCircle,
+  'char-distribution': PieChart,
+  'zero-width-cleaner': Eraser,
+  'nato-alphabet': Plane,
+  'markdown-footnotes': Quote,
+  'morse-code': Radio,
+  'zalgo-glitch': AlertTriangle,
+  'anagram-palindrome': Repeat,
+  'poetic-meter': Scroll,
+
+  // Developer & Data (48)
+  'timestamp': Calendar,
+  'json-tools': FileJson,
+  'base64': Binary,
+  'url-tools': Link2,
+  'hash-generator': Fingerprint,
+  'uuid-generator': Key,
+  'html-entities': Code,
+  'chmod-calculator': Shield,
+  'cron-humanizer': Clock,
+  'jwt-decoder': KeyRound,
+  'qr-code': QrCode,
+  'curl-to-code': Terminal,
+  'docker-compose-converter': Boxes,
+  'xml-formatter': FileCode,
+  'yaml-json': ArrowLeftRight,
+  'byte-converter': HardDrive,
+  'sql-formatter': Database,
+  'user-agent-parser': Laptop,
+  'ascii-banner': Terminal,
+  'regex-tester': Search,
+  'basic-auth': Lock,
+  'markdown-html': Code2,
+  'binary-converter': Binary,
+  'hex-converter': Hash,
+  'subnet-calculator': Network,
+  'mac-formatter': Cpu,
+  'password-generator': ShieldCheck,
+  'json-csv': FileSpreadsheet,
+  'port-lookup': Server,
+  'http-status': Activity,
+  'json-schema': FileCheck,
+  'git-cheat-sheet': GitBranch,
+  'mime-types': FileType,
+  'code-minifier': Minimize2,
+  'color-sniffer': Pipette,
+  'nanoid-generator': Key,
+  'ipv6-tools': Network,
+  'radix-converter': Binary,
+  'json-to-typescript': FileCode,
+  'html-sanitizer': ShieldCheck,
+  'env-to-json': FileText,
+  'semver-inspector': Tag,
+  'sql-minifier': Database,
+  'bitmask-permissions': ToggleLeft,
+  'cors-headers': Share2,
+  'htaccess-generator': Server,
+  'svg-cleaner': FileCode,
+  'url-inspector': Link2
+};
+
+const CATEGORY_DEFAULT_ICONS: Record<ToolCategory, LucideIcon> = {
+  all: Layers,
+  video: Film,
+  audio: Volume2,
+  design: Palette,
+  writing: FileText,
+  dev: Code2
+};
+
+interface ToolIconProps {
+  toolId?: string;
+  category?: ToolCategory;
+  className?: string;
+}
+
+export const ToolIcon: React.FC<ToolIconProps> = ({
+  toolId,
+  category = 'dev',
+  className = 'w-4 h-4'
+}) => {
+  const IconComponent = (toolId ? TOOL_ICON_MAP[toolId] : null) || CATEGORY_DEFAULT_ICONS[category] || Code2;
+  return <IconComponent className={className} strokeWidth={1.75} />;
+};
