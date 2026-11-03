@@ -109,6 +109,21 @@ import { SynthView } from '../views/audio/SynthView';
 
 import { ResScaleView } from '../views/video/ResScaleView';
 
+import { Ipv6View } from '../views/dev/Ipv6View';
+import { RadixView } from '../views/dev/RadixView';
+import { JsonToTsView } from '../views/dev/JsonToTsView';
+import { HtmlSanitizeView } from '../views/dev/HtmlSanitizeView';
+
+import { GoldenRatioView } from '../views/design/GoldenRatioView';
+import { BoxSizingView } from '../views/design/BoxSizingView';
+
+import { NatoView } from '../views/writing/NatoView';
+import { FootnoteView } from '../views/writing/FootnoteView';
+
+import { BpmHzView } from '../views/audio/BpmHzView';
+
+import { LetterboxView } from '../views/video/LetterboxView';
+
 export function initializeTools(): void {
   // ==========================================
   // Video & Media (5 tools)
@@ -1189,5 +1204,118 @@ export function initializeTools(): void {
     keywords: ['proxy resolution calculator', 'video scale', 'aspect ratio scaler'],
     component: ResScaleView,
     icon: '📐',
+  });
+
+  // ==========================================
+  // Batch 9 Tools (96-105)
+  // ==========================================
+  registerTool({
+    id: 'ipv6-tools',
+    title: 'IPv6 Address Expander & Shortener',
+    description: 'Expand compressed IPv6 addresses into full 32-nibble notation or shorten them to RFC 5952 standard form',
+    category: 'dev',
+    tags: ['ipv6', 'network', 'expand', 'compress', 'ip', 'rfc5952', 'dev'],
+    keywords: ['expand ipv6', 'compress ipv6', 'ipv6 address format'],
+    component: Ipv6View,
+    icon: '🌐',
+  });
+
+  registerTool({
+    id: 'radix-converter',
+    title: 'Multi-Base Radix Converter',
+    description: 'Convert large integers across Decimal, Hexadecimal, Binary, Octal, and Base36 notations with bit length inspection',
+    category: 'dev',
+    tags: ['radix', 'base', 'decimal', 'hex', 'binary', 'octal', 'bits', 'dev'],
+    keywords: ['number base converter', 'decimal to binary', 'hex to decimal'],
+    component: RadixView,
+    icon: '🔢',
+  });
+
+  registerTool({
+    id: 'json-to-typescript',
+    title: 'JSON to TypeScript Interface Generator',
+    description: 'Infer typed TypeScript interfaces and nested types directly from raw JSON objects or arrays',
+    category: 'dev',
+    tags: ['json', 'typescript', 'types', 'interfaces', 'generator', 'dev'],
+    keywords: ['json to ts', 'generate typescript interface', 'json type inference'],
+    component: JsonToTsView,
+    icon: '🔷',
+  });
+
+  registerTool({
+    id: 'html-sanitizer',
+    title: 'Safe HTML Sanitizer & XSS Cleaner',
+    description: 'Purge executable scripts, iframe embeds, and inline DOM event handlers (onclick, onerror) to prevent XSS',
+    category: 'dev',
+    tags: ['html', 'sanitizer', 'xss', 'security', 'clean html', 'dev'],
+    keywords: ['html sanitizer', 'strip scripts', 'xss cleaner'],
+    component: HtmlSanitizeView,
+    icon: '🛡️',
+  });
+
+  registerTool({
+    id: 'golden-ratio',
+    title: 'Golden Ratio (φ 1.618) Layout & Typography',
+    description: 'Calculate aesthetically balanced column layouts and harmonic typography scale steps using the divine proportion',
+    category: 'design',
+    tags: ['golden ratio', 'phi', 'layout', 'typography', 'scale', 'design'],
+    keywords: ['golden ratio calculator', 'phi scale', 'golden ratio typography'],
+    component: GoldenRatioView,
+    icon: '🌀',
+  });
+
+  registerTool({
+    id: 'box-sizing',
+    title: 'CSS Box Model & Sizing Visualizer',
+    description: 'Inspect outer rendered dimensions versus inner content areas between content-box and border-box sizing models',
+    category: 'design',
+    tags: ['box-sizing', 'border-box', 'content-box', 'css', 'box model', 'design'],
+    keywords: ['css box-sizing', 'border-box vs content-box', 'box model calculator'],
+    component: BoxSizingView,
+    icon: '📦',
+  });
+
+  registerTool({
+    id: 'nato-alphabet',
+    title: 'NATO Phonetic Alphabet & Aviation Spelling',
+    description: 'Translate words, callsigns, and serial numbers into clear ICAO / NATO phonetic code words for voice radio clarity',
+    category: 'writing',
+    tags: ['nato', 'phonetic', 'alphabet', 'icao', 'aviation', 'radio', 'spelling', 'writing'],
+    keywords: ['nato phonetic alphabet', 'aviation alphabet', 'alpha bravo charlie'],
+    component: NatoView,
+    icon: '✈️',
+  });
+
+  registerTool({
+    id: 'markdown-footnotes',
+    title: 'Markdown Footnote & Citation Builder',
+    description: 'Format academic footnotes, reference citations, and bibliography markers according to GitHub Flavored Markdown',
+    category: 'writing',
+    tags: ['footnote', 'citation', 'references', 'markdown', 'gfm', 'writing'],
+    keywords: ['markdown footnotes', 'citation builder', 'gfm footnotes'],
+    component: FootnoteView,
+    icon: '📑',
+  });
+
+  registerTool({
+    id: 'bpm-to-hz',
+    title: 'BPM to Hz Frequency & Period Converter',
+    description: 'Translate musical tempo into LFO oscillation frequencies in Hertz (Hz) and waveform cycle periods in milliseconds',
+    category: 'audio',
+    tags: ['bpm to hz', 'frequency', 'lfo', 'oscillation', 'hertz', 'milliseconds', 'audio', 'music'],
+    keywords: ['bpm to hz', 'tempo to frequency', 'lfo sync calculator'],
+    component: BpmHzView,
+    icon: '🎚️',
+  });
+
+  registerTool({
+    id: 'letterbox-matte',
+    title: 'Video Letterbox & Pillarbox Matte Visualizer',
+    description: 'Calculate exact matte bar dimensions (top/bottom or pillarbox left/right) and active screen surface efficiency',
+    category: 'video',
+    tags: ['letterbox', 'pillarbox', 'matte', 'aspect ratio', 'black bars', 'video', 'film'],
+    keywords: ['letterbox calculator', 'pillarbox math', 'aspect matte visualizer'],
+    component: LetterboxView,
+    icon: '🎞️',
   });
 }

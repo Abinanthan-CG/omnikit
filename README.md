@@ -3,13 +3,13 @@
 > **The Universal Computer Swiss Army Knife.**  
 > Lightning-fast, privacy-first client-side micro-tools for creators, designers, audio engineers, writers, and developers.
 
-Omnikit bundles **95 essential, daily-driver micro-utilities** under one clean roof with zero ads, zero trackers, and zero server roundtrips. Everything executes 100% locally in your browser.
+Omnikit bundles **105 essential, daily-driver micro-utilities** under one clean roof with zero ads, zero trackers, and zero server roundtrips. Everything executes 100% locally in your browser.
 
 ---
 
-## ⚡ 95 High-Utility Micro-Tools Across 5 Disciplines
+## ⚡ 105 High-Utility Micro-Tools Across 5 Disciplines
 
-### 🎬 Video & Film (12 Tools)
+### 🎬 Video & Film (13 Tools)
 - **SMPTE Timecode Calculator:** Frame-accurate timecode addition, subtraction, and duration calculations. Supports 23.976, 24, 25, 29.97 drop-frame, 30, and 60 fps without drift.
 - **Aspect Ratio & Letterbox Calculator:** Simplified aspect ratios (Euclidean GCD algorithm), decimal fractions, and exact padding math for 16:9, 9:16, 4:3, and 1:1 containers.
 - **Video Bitrate & Storage Estimator:** Calculate expected export file sizes from duration and bitrate, or find the maximum bitrate to fit upload limits (e.g. 25MB Discord limit).
@@ -22,8 +22,9 @@ Omnikit bundles **95 essential, daily-driver micro-utilities** under one clean r
 - **Golden Hour & Blue Hour Sun Calculator:** Calculate morning and evening Golden Hour, Blue Hour, and solar noon for outdoor photography shoots.
 - **Camera Lens Angle of View (AoV) Geometry:** Calculate horizontal, vertical, and diagonal field of view angles across cinema sensor standards.
 - **Video Resolution & Proxy Scaler:** Calculate proportional downscaling, proxy dimensions, aspect ratio parity, and pixel counts for video codecs.
+- **Video Letterbox & Pillarbox Matte Visualizer:** Calculate exact matte bar dimensions (top/bottom or pillarbox left/right) and active screen surface efficiency.
 
-### 🎵 Audio & Music (8 Tools)
+### 🎵 Audio & Music (9 Tools)
 - **BPM Delay & Reverb Sync:** Converts tempo into delay millisecond timings for standard, dotted, and triplet divisions (1/1 through 1/64 notes) plus reverb pre-delay and room decay sync guides.
 - **Musical Note to Frequency (Hz):** Bidirectional conversion between musical notes, MIDI numbers, and frequencies with custom A4 concert pitch tuning (432Hz, 440Hz, 442Hz).
 - **Tap Tempo BPM Detector:** High-precision interactive tap metronome calculating tempo from sequential keyboard or mouse taps.
@@ -32,8 +33,9 @@ Omnikit bundles **95 essential, daily-driver micro-utilities** under one clean r
 - **Audio Decibel (dB) & Gain Multiplier:** Translate audio decibel gain (dB) to linear voltage amplitude multipliers and power ratios.
 - **Musical Interval & Chord Frequencies:** Calculate exact frequencies and mathematical ratios for musical intervals and harmonic triads.
 - **Tone Synthesizer & Audio Oscillator:** Generate precise calibration sine waves, test tones, and analyze fundamental harmonic frequencies.
+- **BPM to Hz Frequency & Period Converter:** Translate musical tempo into LFO oscillation frequencies in Hertz (Hz) and waveform cycle periods in milliseconds.
 
-### 🎨 Visual & UI Design (21 Tools)
+### 🎨 Visual & UI Design (23 Tools)
 - **WCAG 2.1 Color Contrast Checker:** Instant relative luminance and contrast ratio calculations up to 21:1. Assesses WCAG 2.1 AA and AAA compliance for normal text, large text, and graphical UI components.
 - **PX ↔ REM Converter:** Bidirectional pixel-to-REM converter with configurable root font size and quick-lookup reference scales.
 - **Color Format Converter:** Seamless conversions between HEX (#RRGGBB / #RRGGBBAA), RGB(A), and HSL(A) with live swatches and copyable CSS tokens.
@@ -55,8 +57,10 @@ Omnikit bundles **95 essential, daily-driver micro-utilities** under one clean r
 - **CSS Flexbox Layout Studio:** Interactive flexbox layout playground generating standard CSS rules and Tailwind utility classes.
 - **CSS Text Shadow & Neon Glow Studio:** Design multi-layer text shadows, ambient glows, and neon sign effects with live copyable CSS.
 - **CSS Length & Viewport Units Converter:** Convert between px, rem, em, %, vw, and vh based on customizable root font and viewport dimensions.
+- **Golden Ratio (φ 1.618) Layout & Typography:** Calculate aesthetically balanced column layouts and harmonic typography scale steps using the divine proportion.
+- **CSS Box Model & Sizing Visualizer:** Inspect outer rendered dimensions versus inner content areas between content-box and border-box sizing models.
 
-### ✍️ Writing & Copy (18 Tools)
+### ✍️ Writing & Copy (20 Tools)
 - **Multi-Style Case Converter:** Transforms text across 9 casing conventions (camelCase, PascalCase, kebab-case, snake_case, CONSTANT_CASE, Title Case preserving minor words, Sentence case, etc.).
 - **Word & Reading Metrics:** Real-time counters for characters, words, sentences, paragraphs, average word length, reading time (200 WPM), and speaking time (130 WPM).
 - **Side-by-Side Text Diff Checker:** Instant line-by-line comparison highlighting additions, deletions, and unchanged text.
@@ -75,8 +79,10 @@ Omnikit bundles **95 essential, daily-driver micro-utilities** under one clean r
 - **Batch Line Prefix & Suffix Tool:** Batch prepend and append custom prefixes, suffixes, quotes, or sequential numbers to each line.
 - **Character & Case Distribution:** Inspect character breakdowns, uppercase/lowercase balance, digits, punctuation, and ASCII counts.
 - **Invisible & Zero-Width Character Cleaner:** Detect and purge zero-width spaces, non-breaking spaces, BOMs, and hidden unicode anomalies.
+- **NATO Phonetic Alphabet & Aviation Spelling:** Translate words, callsigns, and serial numbers into clear ICAO / NATO phonetic code words for voice radio clarity.
+- **Markdown Footnote & Citation Builder:** Format academic footnotes, reference citations, and bibliography markers according to GitHub Flavored Markdown.
 
-### 💻 Developer & Data (36 Tools)
+### 💻 Developer & Data (40 Tools)
 - **Unix Epoch Timestamp Converter:** Bidirectional conversion between Unix timestamps (seconds & milliseconds) and ISO 8601 UTC / local datetime strings, complete with live epoch clock.
 - **JSON Formatter & Auto-Fixer:** Formats, minifies, validates, and automatically repairs malformed JSON (single quotes, trailing commas, and unquoted keys).
 - **Base64 String Converter:** Encodes and decodes strings with standard Base64 or URL-safe encoding without padding.
@@ -113,12 +119,16 @@ Omnikit bundles **95 essential, daily-driver micro-utilities** under one clean r
 - **HTML & CSS Code Minifier:** Strip comments, collapse whitespaces, and optimize HTML & CSS stylesheets with size reduction metrics.
 - **Code Color Palette Sniffer:** Scan code, stylesheets, or markup to extract all Hex, RGB, and HSL color definitions into a visual palette.
 - **Nano ID & Compact UUID Generator:** Generate URL-safe, collision-resistant unique identifiers with customizable lengths and alphabets.
+- **IPv6 Address Expander & Shortener:** Expand compressed IPv6 addresses into full 32-nibble notation or shorten them to RFC 5952 standard form.
+- **Multi-Base Radix Converter:** Convert large integers across Decimal, Hexadecimal, Binary, Octal, and Base36 notations with bit length inspection.
+- **JSON to TypeScript Interface Generator:** Infer typed TypeScript interfaces and nested types directly from raw JSON objects or arrays.
+- **Safe HTML Sanitizer & XSS Cleaner:** Purge executable scripts, iframe embeds, and inline DOM event handlers (onclick, onerror) to prevent XSS.
 
 ---
 
 ## 🚀 Keyboard-First Ergonomics
 
-- **Command Palette:** Press <kbd>Ctrl</kbd>+<kbd>K</kbd>, <kbd>Cmd</kbd>+<kbd>K</kbd>, or <kbd>/</kbd> anywhere to trigger the fuzzy search bar across all 95 tools.
+- **Command Palette:** Press <kbd>Ctrl</kbd>+<kbd>K</kbd>, <kbd>Cmd</kbd>+<kbd>K</kbd>, or <kbd>/</kbd> anywhere to trigger the fuzzy search bar across all 105 tools.
 - **Category Filter Pills:** Switch instantly between disciplines (`Video & Film`, `Audio & Music`, `Design & UI`, `Writing & Copy`, `Dev & Data`).
 - **Deep Linking:** Hash-based routing allows sharing or bookmarking specific tools (e.g. `/#chmod-calculator`, `/#qr-code`, `/#jwt-decoder`).
 - **Zero Data Leakage:** 100% client-side computation. Sensitive tokens, text, and data never leave your browser sandbox.
