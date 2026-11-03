@@ -151,7 +151,19 @@ const TOOL_ICON_MAP: Record<string, LucideIcon> = {
   'cors-headers': Share2,
   'htaccess-generator': Server,
   'svg-cleaner': FileCode,
-  'url-inspector': Link2
+  'url-inspector': Link2,
+
+  // Batch 12 (Developer & Security)
+  'defang-url': ShieldCheck,
+  'cidr-calc': Network,
+  'hexdump': Binary,
+  'base58-base32': KeyRound,
+  'bcrypt-inspector': Lock,
+  'ulid-generator': Fingerprint,
+  'dns-records': Radio,
+  'curl-builder': Terminal,
+  'json-diff': GitCompare,
+  'sql-to-json': Database
 };
 
 const CATEGORY_DEFAULT_ICONS: Record<ToolCategory, LucideIcon> = {

@@ -154,6 +154,19 @@ import { HeadroomView } from '../views/audio/HeadroomView';
 
 import { LightingContrastView } from '../views/video/LightingContrastView';
 
+import {
+  DefangUrlTool,
+  CidrCalculatorTool,
+  HexDumpViewerTool,
+  Base58Base32Tool,
+  BcryptTool,
+  UlidTool,
+  DnsZoneTool,
+  CurlBuilderTool,
+  JsonDiffTool,
+  SqlInsertJsonTool
+} from '../components/tools/batch12Tools';
+
 export function initializeTools(): void {
   // ==========================================
   // Video & Media (5 tools)
@@ -1573,5 +1586,118 @@ export function initializeTools(): void {
     keywords: ['lighting contrast ratio', 'key to fill ratio', 'cinematography lighting calculator'],
     component: LightingContrastView,
     icon: '💡',
+  });
+
+  // ==========================================
+  // Batch 12: Developer & Security Workstation (10 tools -> 135 total)
+  // ==========================================
+  registerTool({
+    id: 'defang-url',
+    title: 'Defang & Refang URL / IP',
+    description: 'Neutralize active URLs, IPs, and email links for safe incident reports and ticketing',
+    category: 'dev',
+    tags: ['defang', 'refang', 'url', 'ip', 'security', 'cyberchef', 'hxxp', 'ioc', 'dev'],
+    keywords: ['defang url', 'refang ip', 'ioc sanitizer', 'malicious link safe'],
+    component: DefangUrlTool,
+    icon: '🛡️',
+  });
+
+  registerTool({
+    id: 'cidr-calc',
+    title: 'CIDR Subnet & IP Range Calculator',
+    description: 'Calculate network address, broadcast address, netmask, wildcard, and usable host ranges',
+    category: 'dev',
+    tags: ['cidr', 'subnet', 'ip', 'netmask', 'networking', 'broadcast', 'host range', 'dev'],
+    keywords: ['cidr calculator', 'subnet mask calculator', 'ip range calculator'],
+    component: CidrCalculatorTool,
+    icon: '🌐',
+  });
+
+  registerTool({
+    id: 'hexdump',
+    title: 'Hex Dump (xxd) Byte Inspector',
+    description: 'Inspect binary byte offsets, hexadecimal pairs, and ASCII output matrix of arbitrary payloads',
+    category: 'dev',
+    tags: ['hexdump', 'xxd', 'hex', 'bytes', 'binary', 'offset', 'ascii', 'dev'],
+    keywords: ['hex dump viewer', 'xxd inspector', 'binary hex view'],
+    component: HexDumpViewerTool,
+    icon: '🔢',
+  });
+
+  registerTool({
+    id: 'base58-base32',
+    title: 'Base58 & Base32 Encoder / Decoder',
+    description: 'Encode and decode Bitcoin Base58 and RFC 4648 Base32 payloads offline without server calls',
+    category: 'dev',
+    tags: ['base58', 'base32', 'bitcoin', 'crypto', 'encoding', 'decoding', 'rfc4648', 'dev'],
+    keywords: ['base58 encode', 'base32 decode', 'bitcoin address base58'],
+    component: Base58Base32Tool,
+    icon: '🔤',
+  });
+
+  registerTool({
+    id: 'bcrypt-inspector',
+    title: 'Bcrypt Password Hash Inspector',
+    description: 'Inspect salt parameters, iteration cost factor, and validity of Bcrypt hashes',
+    category: 'dev',
+    tags: ['bcrypt', 'hash', 'password', 'security', 'salt', 'cost', 'rounds', 'dev'],
+    keywords: ['bcrypt inspector', 'bcrypt salt', 'bcrypt cost factor'],
+    component: BcryptTool,
+    icon: '🔒',
+  });
+
+  registerTool({
+    id: 'ulid-generator',
+    title: 'ULID Time-Ordered Unique ID Generator',
+    description: 'Generate 26-character Universally Unique Lexicographically Sortable Identifiers for databases',
+    category: 'dev',
+    tags: ['ulid', 'id', 'uuid', 'timestamp', 'sortable', 'crockford', 'database', 'dev'],
+    keywords: ['ulid generator', 'lexicographical id', 'time ordered uuid'],
+    component: UlidTool,
+    icon: '🆔',
+  });
+
+  registerTool({
+    id: 'dns-records',
+    title: 'DNS Zone Record Parser & Formatter',
+    description: 'Parse, validate, and structure standard DNS zone records (A, AAAA, MX, CNAME, TXT)',
+    category: 'dev',
+    tags: ['dns', 'zone', 'mx', 'cname', 'txt', 'records', 'networking', 'dev'],
+    keywords: ['dns record formatter', 'zone file parser', 'dns inspector'],
+    component: DnsZoneTool,
+    icon: '📡',
+  });
+
+  registerTool({
+    id: 'curl-builder',
+    title: 'cURL Command Visual Builder',
+    description: 'Visually assemble authenticated cURL CLI requests with custom headers, JSON payloads, and flags',
+    category: 'dev',
+    tags: ['curl', 'cli', 'api', 'http', 'request', 'post', 'headers', 'dev'],
+    keywords: ['curl command generator', 'curl builder', 'api request builder'],
+    component: CurlBuilderTool,
+    icon: '💻',
+  });
+
+  registerTool({
+    id: 'json-diff',
+    title: 'JSON Structural Tree Diff & Comparator',
+    description: 'Compare two JSON objects structurally to identify added keys, removed fields, and modified values',
+    category: 'dev',
+    tags: ['json', 'diff', 'compare', 'objects', 'keys', 'structural diff', 'dev'],
+    keywords: ['json diff checker', 'json tree compare', 'json object diff'],
+    component: JsonDiffTool,
+    icon: '🌿',
+  });
+
+  registerTool({
+    id: 'sql-to-json',
+    title: 'SQL INSERT Statement to JSON Array',
+    description: 'Parse SQL INSERT INTO query statements directly into a clean, structured array of JSON objects',
+    category: 'dev',
+    tags: ['sql', 'json', 'insert', 'converter', 'database', 'parser', 'table', 'dev'],
+    keywords: ['sql to json', 'sql insert parser', 'sql values to json'],
+    component: SqlInsertJsonTool,
+    icon: '🗄️',
   });
 }
