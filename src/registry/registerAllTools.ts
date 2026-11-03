@@ -124,6 +124,21 @@ import { BpmHzView } from '../views/audio/BpmHzView';
 
 import { LetterboxView } from '../views/video/LetterboxView';
 
+import { EnvJsonView } from '../views/dev/EnvJsonView';
+import { SemverView } from '../views/dev/SemverView';
+import { SqlMinifyView } from '../views/dev/SqlMinifyView';
+import { BitmaskView } from '../views/dev/BitmaskView';
+
+import { GridView } from '../views/design/GridView';
+import { RibbonView } from '../views/design/RibbonView';
+
+import { MorseView } from '../views/writing/MorseView';
+import { ZalgoView } from '../views/writing/ZalgoView';
+
+import { SampleRateView } from '../views/audio/SampleRateView';
+
+import { DofView } from '../views/video/DofView';
+
 export function initializeTools(): void {
   // ==========================================
   // Video & Media (5 tools)
@@ -1317,5 +1332,118 @@ export function initializeTools(): void {
     keywords: ['letterbox calculator', 'pillarbox math', 'aspect matte visualizer'],
     component: LetterboxView,
     icon: '🎞️',
+  });
+
+  // ==========================================
+  // Batch 10 Tools (106-115)
+  // ==========================================
+  registerTool({
+    id: 'env-to-json',
+    title: 'Environment (.env) ↔ JSON Converter',
+    description: 'Convert bidirectionally between standard .env config files and structured JSON configuration objects',
+    category: 'dev',
+    tags: ['env', 'json', 'config', 'environment variables', 'dev', 'converter'],
+    keywords: ['env to json', 'json to env', 'dotenv converter'],
+    component: EnvJsonView,
+    icon: '⚙️',
+  });
+
+  registerTool({
+    id: 'semver-inspector',
+    title: 'Semantic Versioning (SemVer) Inspector & Bumper',
+    description: 'Parse version strings, compare precedence between release versions, and calculate major/minor/patch increments',
+    category: 'dev',
+    tags: ['semver', 'version', 'bump', 'release', 'npm', 'dev'],
+    keywords: ['semver compare', 'semver bumper', 'semantic versioning calculator'],
+    component: SemverView,
+    icon: '🏷️',
+  });
+
+  registerTool({
+    id: 'sql-minifier',
+    title: 'SQL Query Minifier & Comment Stripper',
+    description: 'Compress database queries, strip single/multi-line comments, and collapse whitespace for embedded SQL strings',
+    category: 'dev',
+    tags: ['sql', 'minify', 'compress', 'database', 'clean sql', 'dev'],
+    keywords: ['minify sql', 'strip sql comments', 'sql compressor'],
+    component: SqlMinifyView,
+    icon: '🗄️',
+  });
+
+  registerTool({
+    id: 'bitmask-permissions',
+    title: 'Permission Bitmask Flag Inspector & Builder',
+    description: 'Inspect bitwise flags, calculate combined permission integers, binary bit sequences, and hexadecimal representations',
+    category: 'dev',
+    tags: ['bitmask', 'flags', 'permissions', 'bitwise', 'binary', 'rbac', 'dev'],
+    keywords: ['permission bitmask', 'bitwise flags calculator', 'binary permissions'],
+    component: BitmaskView,
+    icon: '🛡️',
+  });
+
+  registerTool({
+    id: 'css-grid',
+    title: 'CSS Grid Layout Generator',
+    description: 'Design responsive CSS Grid structures with live preview, fr/auto unit controls, and Tailwind utility classes',
+    category: 'design',
+    tags: ['grid', 'css grid', 'layout', 'tailwind', 'columns', 'rows', 'design'],
+    keywords: ['css grid generator', 'grid layout preview', 'tailwind grid'],
+    component: GridView,
+    icon: '▦',
+  });
+
+  registerTool({
+    id: 'css-ribbon',
+    title: 'CSS Corner Ribbon & Badge Generator',
+    description: 'Design diagonal corner ribbons for pricing tiers, new badges, and promotional product cards',
+    category: 'design',
+    tags: ['ribbon', 'badge', 'banner', 'corner', 'css', 'card', 'design'],
+    keywords: ['css ribbon', 'corner banner', 'diagonal badge css'],
+    component: RibbonView,
+    icon: '🎗️',
+  });
+
+  registerTool({
+    id: 'morse-code',
+    title: 'International Morse Code Translator',
+    description: 'Translate plain text to international Morse code dots and dashes, or decode transmissions back to readable text',
+    category: 'writing',
+    tags: ['morse', 'morse code', 'translator', 'radio', 'telegraph', 'writing'],
+    keywords: ['morse code translator', 'text to morse', 'morse decoder'],
+    component: MorseView,
+    icon: '📻',
+  });
+
+  registerTool({
+    id: 'zalgo-glitch',
+    title: 'Zalgo Glitch & Corrupted Text Generator',
+    description: 'Inject chaotic stacked Unicode diacritical marks to generate void, cursed, and glitch aesthetic typography',
+    category: 'writing',
+    tags: ['zalgo', 'glitch', 'corrupted text', 'void', 'cursed', 'unicode', 'writing'],
+    keywords: ['zalgo text generator', 'glitch font', 'cursed text generator'],
+    component: ZalgoView,
+    icon: '👹',
+  });
+
+  registerTool({
+    id: 'sample-rate-calculator',
+    title: 'Audio Sample Rate & Nyquist Calculator',
+    description: 'Inspect acoustic bandwidth limits, Nyquist cutoffs, and uncompressed PCM bitrates across broadcast standards',
+    category: 'audio',
+    tags: ['sample rate', 'nyquist', 'frequency', 'pcm', 'audio bitrate', 'audio', 'music'],
+    keywords: ['nyquist frequency calculator', 'audio sample rate math', 'pcm data rate'],
+    component: SampleRateView,
+    icon: '🎙️',
+  });
+
+  registerTool({
+    id: 'depth-of-field',
+    title: 'Camera Depth of Field (DoF) & Hyperfocal Geometry',
+    description: 'Calculate hyperfocal distance, near limit, far limit, and total depth of field sharpness zone',
+    category: 'video',
+    tags: ['dof', 'depth of field', 'hyperfocal', 'aperture', 'focal length', 'camera', 'video', 'film'],
+    keywords: ['depth of field calculator', 'hyperfocal distance', 'camera dof'],
+    component: DofView,
+    icon: '🎯',
   });
 }
