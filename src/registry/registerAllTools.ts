@@ -167,6 +167,19 @@ import {
   SqlInsertJsonTool
 } from '../components/tools/batch12Tools';
 
+import {
+  SrtVttTool,
+  FfmpegGenTool,
+  TimecodeDriftTool,
+  SensorCropTool,
+  AnamorphicDeSqueezeTool,
+  ChromaSubsamplingTool,
+  WhiteNoiseGenTool,
+  DtmfDialerTool,
+  MusicScalesTool,
+  BinauralBeatsTool
+} from '../components/tools/batch13Tools';
+
 export function initializeTools(): void {
   // ==========================================
   // Video & Media (5 tools)
@@ -1699,5 +1712,118 @@ export function initializeTools(): void {
     keywords: ['sql to json', 'sql insert parser', 'sql values to json'],
     component: SqlInsertJsonTool,
     icon: '🗄️',
+  });
+
+  // ==========================================
+  // Batch 13: Media, Video & Audio Workstation (10 tools -> 145 total)
+  // ==========================================
+  registerTool({
+    id: 'srt-vtt',
+    title: 'Subtitle SRT ⇄ WebVTT Converter',
+    description: 'Convert subtitle files between SubRip (.srt) and HTML5 WebVTT (.vtt) with frame-accurate delimiters',
+    category: 'video',
+    tags: ['subtitle', 'srt', 'vtt', 'webvtt', 'captions', 'video', 'converter'],
+    keywords: ['srt to vtt', 'vtt to srt', 'subtitle converter'],
+    component: SrtVttTool,
+    icon: '📝',
+  });
+
+  registerTool({
+    id: 'ffmpeg-gen',
+    title: 'FFmpeg Command Studio Generator',
+    description: 'Quickly construct battle-tested FFmpeg CLI commands for transcoding, compression, audio extraction, and trimming',
+    category: 'video',
+    tags: ['ffmpeg', 'video', 'transcode', 'compress', 'cli', 'trim', 'convert'],
+    keywords: ['ffmpeg generator', 'ffmpeg command builder', 'video compress ffmpeg'],
+    component: FfmpegGenTool,
+    icon: '🎬',
+  });
+
+  registerTool({
+    id: 'timecode-drift',
+    title: 'Timecode Drop-Frame Sync Drift Calculator',
+    description: 'Diagnose audio/video sync drift over time caused by 29.97 NDF vs real wall-clock timing',
+    category: 'video',
+    tags: ['timecode', 'drift', 'dropframe', 'ndf', 'sync', 'audio drift', 'video'],
+    keywords: ['timecode drift calculator', 'drop frame drift', '29.97 drift'],
+    component: TimecodeDriftTool,
+    icon: '⏱️',
+  });
+
+  registerTool({
+    id: 'sensor-crop',
+    title: 'Camera Sensor Crop Factor & 35mm Equiv',
+    description: 'Calculate effective 35mm full-frame focal lengths and depth-of-field across cinema and camera sensors',
+    category: 'video',
+    tags: ['camera', 'sensor', 'crop factor', 'focal length', 'aperture', 'dof', '35mm', 'video'],
+    keywords: ['crop factor calculator', '35mm equivalent', 'full frame crop'],
+    component: SensorCropTool,
+    icon: '📷',
+  });
+
+  registerTool({
+    id: 'anamorphic-desqueeze',
+    title: 'Anamorphic De-Squeeze & Aspect Scaler',
+    description: 'Calculate post-production de-squeeze pixel dimensions and aspect ratios for anamorphic lenses',
+    category: 'video',
+    tags: ['anamorphic', 'desqueeze', 'aspect ratio', 'scope', 'cinematography', 'video'],
+    keywords: ['anamorphic desqueeze calculator', 'anamorphic squeeze ratio', 'scope aspect'],
+    component: AnamorphicDeSqueezeTool,
+    icon: '📐',
+  });
+
+  registerTool({
+    id: 'chroma-subsampling',
+    title: 'Video Chroma Subsampling Analyzer',
+    description: 'Compare color resolution, pixel grids, and data savings across 4:4:4, 4:2:2, and 4:2:0 formats',
+    category: 'video',
+    tags: ['chroma', 'subsampling', '420', '422', '444', 'yuv', 'video', 'codecs'],
+    keywords: ['chroma subsampling calculator', '420 vs 422', 'yuv subsampling'],
+    component: ChromaSubsamplingTool,
+    icon: '🎨',
+  });
+
+  registerTool({
+    id: 'white-noise-gen',
+    title: 'Acoustic Noise Synthesizer (White, Pink, Brown)',
+    description: 'Synthesize calibrated acoustic noise signals in-browser for sound masking and acoustic evaluation',
+    category: 'audio',
+    tags: ['noise', 'white noise', 'pink noise', 'brown noise', 'acoustic', 'audio', 'sleep'],
+    keywords: ['white noise generator', 'pink noise synth', 'acoustic noise'],
+    component: WhiteNoiseGenTool,
+    icon: '📻',
+  });
+
+  registerTool({
+    id: 'dtmf-dialer',
+    title: 'DTMF Dual-Tone Telephone Dialer',
+    description: 'Synthesize standard Dual-Tone Multi-Frequency telecom frequencies for touch-tone telephone keypads',
+    category: 'audio',
+    tags: ['dtmf', 'telephone', 'dialer', 'tones', 'telecom', 'keypad', 'audio'],
+    keywords: ['dtmf tone generator', 'telephone keypad dialer', 'dual tone synth'],
+    component: DtmfDialerTool,
+    icon: '☎️',
+  });
+
+  registerTool({
+    id: 'music-scales',
+    title: 'Musical Scale & Chord Interval Explorer',
+    description: 'Inspect notes, intervals, and modal degrees across standard major, minor, and exotic musical scales',
+    category: 'audio',
+    tags: ['music', 'scales', 'intervals', 'chords', 'modes', 'dorian', 'blues', 'audio'],
+    keywords: ['musical scale finder', 'scale intervals', 'modes explorer'],
+    component: MusicScalesTool,
+    icon: '🎵',
+  });
+
+  registerTool({
+    id: 'binaural-beats',
+    title: 'Binaural Beat Brainwave Synthesizer',
+    description: 'Generate stereo frequency offsets to stimulate Delta, Theta, Alpha, Beta, and Gamma brainwave states',
+    category: 'audio',
+    tags: ['binaural', 'beats', 'brainwaves', 'alpha', 'theta', 'meditation', 'focus', 'audio'],
+    keywords: ['binaural beat generator', 'brainwave synthesizer', 'alpha wave generator'],
+    component: BinauralBeatsTool,
+    icon: '🎧',
   });
 }

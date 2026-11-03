@@ -163,7 +163,19 @@ const TOOL_ICON_MAP: Record<string, LucideIcon> = {
   'dns-records': Radio,
   'curl-builder': Terminal,
   'json-diff': GitCompare,
-  'sql-to-json': Database
+  'sql-to-json': Database,
+
+  // Batch 13 (Media, Video & Audio)
+  'srt-vtt': FileText,
+  'ffmpeg-gen': Film,
+  'timecode-drift': Clock,
+  'sensor-crop': Camera,
+  'anamorphic-desqueeze': Scaling,
+  'chroma-subsampling': PieChart,
+  'white-noise-gen': Radio,
+  'dtmf-dialer': Keyboard,
+  'music-scales': Music,
+  'binaural-beats': Waves
 };
 
 const CATEGORY_DEFAULT_ICONS: Record<ToolCategory, LucideIcon> = {
