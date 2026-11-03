@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import {
   Search,
   Star,
@@ -54,6 +54,17 @@ export const Sidebar: React.FC<SidebarProps> = ({
 }) => {
   const [filterQuery, setFilterQuery] = useState('');
   const [collapsedCategories, setCollapsedCategories] = useState<Record<string, boolean>>({});
+
+  // Lock background body scroll when mobile drawer is open
+  useEffect(() => {
+    if (isMobileOpen) {
+      const prevOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      return () => {
+        document.body.style.overflow = prevOverflow;
+      };
+    }
+  }, [isMobileOpen]);
 
   const toggleCategory = (catId: string) => {
     playTactileClick('toggle');
@@ -116,6 +127,26 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
   const sidebarContent = (
     <div className="flex flex-col h-full bg-neutral-925 border-r border-neutral-800/80 text-neutral-300 select-none">
+      {/* Mobile Drawer Top Banner with Explicit Close Button */}
+      <div className="md:hidden p-3 border-b border-neutral-800 bg-neutral-950 flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <span className="font-semibold text-sm text-neutral-100">All Utilities</span>
+          <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-neutral-850 text-neutral-400 border border-neutral-750">
+            {tools.length}
+          </span>
+        </div>
+        <button
+          onClick={() => {
+            playTactileClick('pop');
+            onCloseMobile();
+          }}
+          className="w-8 h-8 rounded-lg flex items-center justify-center text-neutral-400 hover:text-white bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 active:scale-95 transition-all"
+          title="Close utilities drawer"
+        >
+          <X className="w-4 h-4" />
+        </button>
+      </div>
+
       {/* Sidebar Search Bar */}
       <div className="p-3 border-b border-neutral-800/80 bg-neutral-950/60">
         <div className="relative">
@@ -125,14 +156,14 @@ export const Sidebar: React.FC<SidebarProps> = ({
             value={filterQuery}
             onChange={(e) => setFilterQuery(e.target.value)}
             placeholder="Filter utilities..."
-            className="w-full pl-8 pr-7 py-1.5 bg-neutral-900 border border-neutral-800 rounded-lg text-xs font-mono text-neutral-100 placeholder-neutral-500 focus:outline-none focus:border-neutral-700 transition-colors"
+            className="w-full pl-8 pr-7 py-2 sm:py-1.5 bg-neutral-900 border border-neutral-800 rounded-lg text-xs font-mono text-neutral-100 placeholder-neutral-500 focus:outline-none focus:border-neutral-700 transition-colors"
           />
           {filterQuery ? (
             <button
               onClick={() => setFilterQuery('')}
-              className="absolute right-2 top-1/2 -translate-y-1/2 p-0.5 text-neutral-500 hover:text-neutral-300"
+              className="absolute right-2 top-1/2 -translate-y-1/2 p-1 text-neutral-500 hover:text-neutral-300"
             >
-              <X className="w-3 h-3" />
+              <X className="w-3.5 h-3.5" />
             </button>
           ) : (
             <kbd className="hidden sm:inline-block absolute right-2 top-1/2 -translate-y-1/2 font-mono text-[9px] bg-neutral-800 text-neutral-500 px-1 py-0.2 rounded border border-neutral-750">
@@ -242,7 +273,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     <button
                       key={tool.id}
                       onClick={() => handleToolClick(tool.id)}
-                      className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-lg text-left transition-colors group relative ${
+                      className={`w-full flex items-center justify-between px-2.5 py-2 sm:py-1.5 rounded-lg text-left transition-colors group relative min-h-[38px] sm:min-h-0 ${
                         isActive
                           ? 'bg-neutral-800 text-neutral-100 font-medium shadow-sm'
                           : 'hover:bg-neutral-850/60 text-neutral-400 hover:text-neutral-200'
@@ -278,13 +309,13 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     {/* Category Header Bar */}
                     <button
                       onClick={() => toggleCategory(cat.id)}
-                      className="w-full flex items-center justify-between px-2 py-1 rounded text-neutral-400 hover:text-neutral-200 hover:bg-neutral-850/40 transition-colors"
+                      className="w-full flex items-center justify-between px-2 py-2 sm:py-1 rounded text-neutral-400 hover:text-neutral-200 hover:bg-neutral-850/40 transition-colors min-h-[38px] sm:min-h-0"
                     >
                       <div className="flex items-center gap-1.5">
                         {isCollapsed ? (
-                          <ChevronRight className="w-3 h-3 text-neutral-500" />
+                          <ChevronRight className="w-3.5 h-3.5 text-neutral-500" />
                         ) : (
-                          <ChevronDown className="w-3 h-3 text-neutral-500" />
+                          <ChevronDown className="w-3.5 h-3.5 text-neutral-500" />
                         )}
                         <IconComponent className={`w-3.5 h-3.5 ${theme.textAccent}`} />
                         <span className="font-medium text-xs text-neutral-300">{cat.label}</span>
@@ -301,7 +332,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                             <button
                               key={tool.id}
                               onClick={() => handleToolClick(tool.id)}
-                              className={`w-full flex items-center justify-between px-2 py-1.5 rounded-lg text-left transition-colors relative group ${
+                              className={`w-full flex items-center justify-between px-2 py-2 sm:py-1.5 rounded-lg text-left transition-colors relative group min-h-[36px] sm:min-h-0 ${
                                 isActive
                                   ? 'bg-neutral-800 text-neutral-100 font-medium shadow-sm'
                                   : 'hover:bg-neutral-850/60 text-neutral-400 hover:text-neutral-200'
@@ -314,7 +345,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                               <button
                                 onClick={(e) => onTogglePin(tool.id, e)}
                                 title={pinnedIds.includes(tool.id) ? 'Unpin' : 'Pin'}
-                                className={`p-0.5 text-neutral-600 hover:text-amber-400 transition-opacity ${
+                                className={`p-1.5 sm:p-0.5 text-neutral-500 hover:text-amber-400 transition-opacity ${
                                   pinnedIds.includes(tool.id) ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
                                 }`}
                               >
@@ -341,7 +372,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
       <div className="p-3 border-t border-neutral-800/80 bg-neutral-950/80 flex items-center justify-between text-xs text-neutral-500 font-mono">
         <div className="flex items-center gap-1.5">
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-          <span>125 utilities</span>
+          <span>{tools.length} utilities</span>
         </div>
         <button
           onClick={onToggleCollapse}
@@ -368,8 +399,14 @@ export const Sidebar: React.FC<SidebarProps> = ({
       {/* Mobile Drawer Overlay */}
       {isMobileOpen && (
         <div className="fixed inset-0 z-50 md:hidden flex">
-          <div className="fixed inset-0 bg-black/70 backdrop-blur-sm" onClick={onCloseMobile} />
-          <div className="relative w-72 max-w-[80vw] h-full shadow-2xl z-10 animate-fade-in">
+          <div
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm transition-opacity"
+            onClick={() => {
+              playTactileClick('pop');
+              onCloseMobile();
+            }}
+          />
+          <div className="relative w-80 max-w-[85vw] h-full shadow-2xl z-10 animate-fade-in flex flex-col bg-neutral-925">
             {sidebarContent}
           </div>
         </div>

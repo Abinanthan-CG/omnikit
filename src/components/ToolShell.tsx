@@ -67,8 +67,20 @@ export const ToolShell: React.FC<ToolShellProps> = ({
     }
   };
 
-  const handleCopyLink = async () => {
+  const handleShare = async () => {
     playTactileClick('click');
+    if (typeof navigator !== 'undefined' && navigator.share) {
+      try {
+        await navigator.share({
+          title: `${title} — Omnikit`,
+          text: description,
+          url: window.location.href,
+        });
+        return;
+      } catch {
+        // Fallback to clipboard if dismissed or unsupported
+      }
+    }
     try {
       await navigator.clipboard.writeText(window.location.href);
       setCopiedLink(true);
@@ -86,16 +98,16 @@ export const ToolShell: React.FC<ToolShellProps> = ({
     : [];
 
   return (
-    <div className="w-full max-w-4xl mx-auto space-y-6">
+    <div className="w-full max-w-4xl mx-auto space-y-4 sm:space-y-6">
       {/* Top Navigation & Action Ribbon */}
-      <div className="flex items-center justify-between gap-4 pb-2">
+      <div className="flex flex-wrap items-center justify-between gap-2.5 pb-1">
         <button
           onClick={() => {
             playTactileClick('click');
             if (onBack) onBack();
             else window.location.hash = '';
           }}
-          className="inline-flex items-center gap-2 text-xs font-mono text-neutral-400 hover:text-neutral-100 transition-colors group"
+          className="inline-flex items-center gap-2 py-1.5 px-2.5 text-xs font-mono text-neutral-400 hover:text-neutral-100 active:bg-neutral-900 rounded-lg transition-colors group min-h-[36px]"
         >
           <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-0.5 transition-transform" />
           <span>Back to utilities</span>
@@ -110,7 +122,7 @@ export const ToolShell: React.FC<ToolShellProps> = ({
             <button
               onClick={togglePin}
               title={isPinned ? 'Remove from pinned utilities' : 'Pin to top of your workbench'}
-              className={`inline-flex items-center gap-1.5 px-2.5 py-1 text-xs rounded-lg border transition-all ${
+              className={`inline-flex items-center gap-1.5 px-2.5 py-1.5 text-xs rounded-lg border transition-all min-h-[36px] ${
                 isPinned
                   ? 'bg-amber-500/10 text-amber-400 border-amber-500/30'
                   : 'bg-neutral-900/80 text-neutral-400 hover:text-neutral-200 border-neutral-800'
@@ -121,11 +133,11 @@ export const ToolShell: React.FC<ToolShellProps> = ({
             </button>
           )}
 
-          {/* Copy Direct Link */}
+          {/* Share / Copy Direct Link */}
           <button
-            onClick={handleCopyLink}
-            title="Copy direct shareable link to this tool"
-            className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs rounded-lg bg-neutral-900/80 hover:bg-neutral-850 text-neutral-400 hover:text-neutral-200 border border-neutral-800 transition-all"
+            onClick={handleShare}
+            title="Share or copy direct link to this tool"
+            className="inline-flex items-center gap-1.5 px-2.5 py-1.5 text-xs rounded-lg bg-neutral-900/80 hover:bg-neutral-850 text-neutral-400 hover:text-neutral-200 border border-neutral-800 transition-all min-h-[36px]"
           >
             {copiedLink ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Link2 className="w-3.5 h-3.5" />}
             <span className="text-[11px] font-mono">{copiedLink ? 'Link Copied' : 'Share'}</span>
@@ -139,7 +151,7 @@ export const ToolShell: React.FC<ToolShellProps> = ({
                 onReset();
               }}
               title="Reset fields to default"
-              className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs rounded-lg bg-neutral-900/80 hover:bg-neutral-850 text-neutral-400 hover:text-neutral-200 border border-neutral-800 transition-all"
+              className="inline-flex items-center gap-1.5 px-2.5 py-1.5 text-xs rounded-lg bg-neutral-900/80 hover:bg-neutral-850 text-neutral-400 hover:text-neutral-200 border border-neutral-800 transition-all min-h-[36px]"
             >
               <RotateCcw className="w-3.5 h-3.5" />
               <span className="hidden sm:inline text-[11px] font-mono">Reset</span>
@@ -159,16 +171,16 @@ export const ToolShell: React.FC<ToolShellProps> = ({
         />
 
         {/* Tool Header Inside Canvas */}
-        <div className="p-6 border-b border-neutral-800/80 flex items-start gap-4">
+        <div className="p-4 sm:p-6 border-b border-neutral-800/80 flex items-start gap-3 sm:gap-4">
           <div
-            className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 border ${theme.bgSubtle} ${theme.borderAccent}`}
+            className={`w-10 sm:w-11 h-10 sm:h-11 rounded-xl flex items-center justify-center shrink-0 border ${theme.bgSubtle} ${theme.borderAccent}`}
           >
-            <ToolIcon toolId={toolId} category={category} className={`w-5 h-5 ${theme.textAccent}`} />
+            <ToolIcon toolId={toolId} category={category} className={`w-4 sm:w-5 h-4 sm:h-5 ${theme.textAccent}`} />
           </div>
 
           <div className="min-w-0 flex-1">
             <div className="flex flex-wrap items-center gap-2 mb-1">
-              <h2 className="text-xl font-bold tracking-tight text-neutral-100">{title}</h2>
+              <h2 className="text-lg sm:text-xl font-bold tracking-tight text-neutral-100">{title}</h2>
               <span className={`text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded border ${theme.badgeClass}`}>
                 {theme.label}
               </span>
@@ -178,7 +190,7 @@ export const ToolShell: React.FC<ToolShellProps> = ({
         </div>
 
         {/* Main Content Area */}
-        <div className="p-6">{children}</div>
+        <div className="p-3.5 sm:p-6">{children}</div>
       </div>
 
       {/* Companion / Related Utilities Tray */}

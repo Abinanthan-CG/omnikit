@@ -37,6 +37,17 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
     }
   }, [isOpen]);
 
+  // Lock background body scroll when palette is open
+  useEffect(() => {
+    if (isOpen) {
+      const prevOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      return () => {
+        document.body.style.overflow = prevOverflow;
+      };
+    }
+  }, [isOpen]);
+
   // Focus input when opened
   useEffect(() => {
     if (isOpen) {
@@ -72,16 +83,16 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-start justify-center pt-16 sm:pt-24 px-4 bg-black/70 backdrop-blur-md animate-fade-in"
+      className="fixed inset-0 z-50 flex items-start justify-center pt-2 sm:pt-20 px-2 sm:px-4 bg-black/80 backdrop-blur-md animate-fade-in"
       onClick={onClose}
     >
       <div
-        className="w-full max-w-2xl bg-neutral-900 border border-neutral-750 rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[80vh]"
+        className="w-full max-w-2xl bg-neutral-900 border border-neutral-750 rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[88vh] sm:max-h-[80vh]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Search Input Bar */}
-        <div className="flex items-center px-4 border-b border-neutral-800 h-14 gap-3 bg-neutral-900/95">
-          <Search className="w-5 h-5 text-neutral-400 shrink-0" />
+        <div className="flex items-center px-3 sm:px-4 border-b border-neutral-800 h-14 gap-2.5 sm:gap-3 bg-neutral-900/95">
+          <Search className="w-4 sm:w-5 h-4 sm:h-5 text-neutral-400 shrink-0" />
           <input
             ref={inputRef}
             type="text"
@@ -91,7 +102,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
               setSelectedIndex(0);
             }}
             onKeyDown={handleKeyDown}
-            placeholder="Type a utility name, category, or keyword..."
+            placeholder="Search utilities, category, or keyword..."
             className="w-full bg-transparent text-neutral-100 placeholder-neutral-500 text-sm focus:outline-none"
           />
           {query && (
@@ -100,18 +111,27 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
                 setQuery('');
                 setSelectedIndex(0);
               }}
-              className="p-1 text-neutral-500 hover:text-neutral-300 rounded"
+              className="p-1.5 text-neutral-400 hover:text-neutral-200 rounded"
             >
               <X className="w-4 h-4" />
             </button>
           )}
+          <button
+            onClick={() => {
+              playTactileClick('pop');
+              onClose();
+            }}
+            className="sm:hidden px-2.5 py-1 text-xs font-mono text-neutral-300 hover:text-white bg-neutral-800 rounded-lg border border-neutral-700 active:bg-neutral-700"
+          >
+            Close
+          </button>
           <kbd className="hidden sm:inline-block font-mono text-[10px] bg-neutral-800 text-neutral-400 px-1.5 py-0.5 rounded border border-neutral-700">
             Esc
           </kbd>
         </div>
 
         {/* Category Filter Chips */}
-        <div className="flex items-center gap-1.5 px-3 py-2 bg-neutral-950/70 border-b border-neutral-800/80 overflow-x-auto text-[11px]">
+        <div className="flex items-center gap-1.5 px-3 py-2 bg-neutral-950/70 border-b border-neutral-800/80 overflow-x-auto text-[11px] scrollbar-none touch-pan-x">
           {(['all', 'dev', 'design', 'writing', 'video', 'audio'] as ToolCategory[]).map((cat) => {
             const isSelected = category === cat;
             const theme = CATEGORY_THEMES[cat];

@@ -3,6 +3,7 @@ import { Header } from './components/Header';
 import { Sidebar } from './components/Sidebar';
 import { DashboardOverview } from './components/DashboardOverview';
 import { CommandPalette } from './components/CommandPalette';
+import { MobileNav } from './components/MobileNav';
 import { getTools, getToolById } from './registry/registry';
 import { initializeTools } from './registry/registerAllTools';
 import { getToolFromHash, createHashForTool } from './utils/routing';
@@ -161,6 +162,7 @@ export default function App() {
         isSidebarCollapsed={isSidebarCollapsed}
         onToggleSidebarCollapse={handleToggleSidebarCollapse}
         onOpenMobileSidebar={() => setIsMobileSidebarOpen(true)}
+        toolsCount={allTools.length}
       />
 
       {/* Main Two-Column Workspace Layout */}
@@ -180,7 +182,7 @@ export default function App() {
         />
 
         {/* Primary Workspace Canvas */}
-        <main className="flex-1 min-w-0 p-4 sm:p-6 lg:p-8 overflow-y-auto bg-neutral-950/60 workbench-canvas">
+        <main className="flex-1 min-w-0 p-3 sm:p-6 lg:p-8 pb-20 md:pb-8 overflow-y-auto bg-neutral-950/60 workbench-canvas">
           {ActiveComponent ? (
             <div className="animate-fade-in">
               <ActiveComponent />
@@ -197,6 +199,17 @@ export default function App() {
           )}
         </main>
       </div>
+
+      {/* Mobile Bottom Navigation Bar */}
+      <MobileNav
+        onOpenMobileSidebar={() => setIsMobileSidebarOpen(true)}
+        onOpenPalette={() => setIsPaletteOpen(true)}
+        onRandomTool={handleRandomTool}
+        activeToolId={activeToolId}
+        onClearActiveTool={handleClearActiveTool}
+        pinnedCount={pinnedIds.length}
+        totalCount={allTools.length}
+      />
 
       {/* Raycast-style Universal Command Palette */}
       <CommandPalette

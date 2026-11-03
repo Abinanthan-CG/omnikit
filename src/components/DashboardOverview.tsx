@@ -77,25 +77,25 @@ export const DashboardOverview: React.FC<DashboardOverviewProps> = ({
   };
 
   return (
-    <div className="max-w-5xl mx-auto space-y-8 pb-12">
+    <div className="max-w-5xl mx-auto space-y-6 sm:space-y-8 pb-16 md:pb-12">
       {/* Raycast-style Universal Command Bar */}
-      <div className="space-y-4">
+      <div className="space-y-3 sm:space-y-4">
         <div className="relative">
-          <Search className="w-5 h-5 text-neutral-400 absolute left-4 top-1/2 -translate-y-1/2" />
+          <Search className="w-4 sm:w-5 h-4 sm:h-5 text-neutral-400 absolute left-3.5 sm:left-4 top-1/2 -translate-y-1/2" />
           <input
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search 125 utilities by keyword, format, or tag..."
-            className="w-full pl-12 pr-28 py-3.5 bg-neutral-900/90 border border-neutral-750 focus:border-neutral-600 rounded-2xl text-sm font-sans text-neutral-100 placeholder-neutral-500 focus:outline-none shadow-xl transition-all"
+            placeholder={`Search ${tools.length} utilities by keyword, format, or tag...`}
+            className="w-full pl-10 sm:pl-12 pr-20 sm:pr-28 py-3 sm:py-3.5 bg-neutral-900/90 border border-neutral-750 focus:border-neutral-600 rounded-xl sm:rounded-2xl text-xs sm:text-sm font-sans text-neutral-100 placeholder-neutral-500 focus:outline-none shadow-xl transition-all"
           />
-          <div className="absolute right-3.5 top-1/2 -translate-y-1/2 flex items-center gap-1.5">
+          <div className="absolute right-2.5 sm:right-3.5 top-1/2 -translate-y-1/2 flex items-center gap-1 sm:gap-1.5">
             <button
               onClick={onRandomTool}
               title="Surprise utility (Shuffle)"
-              className="p-1.5 text-neutral-400 hover:text-neutral-200 rounded-lg hover:bg-neutral-800 transition-colors"
+              className="p-1.5 sm:p-1.5 text-neutral-400 hover:text-neutral-200 rounded-lg hover:bg-neutral-800 active:scale-95 transition-all"
             >
-              <Shuffle className="w-4 h-4" />
+              <Shuffle className="w-4 h-4 text-purple-400" />
             </button>
             <button
               onClick={onOpenPalette}
@@ -109,20 +109,20 @@ export const DashboardOverview: React.FC<DashboardOverviewProps> = ({
         </div>
 
         {/* Discipline Selector Ribbon */}
-        <div className="flex items-center justify-between gap-2 overflow-x-auto pb-1 text-xs font-mono">
-          <div className="flex items-center gap-1.5">
+        <div className="flex items-center justify-between gap-2 overflow-x-auto pb-1 text-xs font-mono scrollbar-none touch-pan-x -mx-1 px-1">
+          <div className="flex items-center gap-1 sm:gap-1.5 shrink-0">
             <button
               onClick={() => {
                 playTactileClick('toggle');
                 setSelectedDiscipline('all');
               }}
-              className={`px-3 py-1.5 rounded-lg transition-colors font-medium ${
+              className={`px-2.5 sm:px-3 py-1.5 rounded-lg transition-colors font-medium whitespace-nowrap min-h-[36px] sm:min-h-0 flex items-center ${
                 selectedDiscipline === 'all'
-                  ? 'bg-neutral-100 text-neutral-900 font-bold'
+                  ? 'bg-neutral-100 text-neutral-900 font-bold shadow-sm'
                   : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-850'
               }`}
             >
-              All (125)
+              All ({tools.length})
             </button>
             {CATEGORIES.map((cat) => {
               const isSelected = selectedDiscipline === cat.id;
@@ -181,14 +181,14 @@ export const DashboardOverview: React.FC<DashboardOverviewProps> = ({
             <span className="text-[10px] text-neutral-500 font-mono">Quick Launch</span>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
             {pinnedTools.map((tool) => {
               const theme = CATEGORY_THEMES[tool.category] || CATEGORY_THEMES.all;
               return (
                 <div
                   key={tool.id}
                   onClick={() => handleLaunch(tool.id)}
-                  className={`flex items-center justify-between p-3 rounded-xl bg-neutral-900/70 border border-neutral-800 hover:bg-neutral-850 cursor-pointer transition-all group ${theme.cardGlow}`}
+                  className={`flex items-center justify-between p-3 rounded-xl bg-neutral-900/70 border border-neutral-800 hover:bg-neutral-850 active:bg-neutral-800 active:scale-[0.99] cursor-pointer transition-all group ${theme.cardGlow}`}
                 >
                   <div className="flex items-center gap-2.5 min-w-0">
                     <div
@@ -209,9 +209,9 @@ export const DashboardOverview: React.FC<DashboardOverviewProps> = ({
                   <button
                     onClick={(e) => onTogglePin(tool.id, e)}
                     title="Unpin utility"
-                    className="p-1 text-neutral-500 hover:text-amber-400 rounded transition-colors shrink-0 ml-1"
+                    className="p-1.5 sm:p-1 text-neutral-500 hover:text-amber-400 rounded transition-colors shrink-0 ml-1"
                   >
-                    <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
+                    <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
                   </button>
                 </div>
               );

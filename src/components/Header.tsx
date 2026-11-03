@@ -24,6 +24,7 @@ interface HeaderProps {
   isSidebarCollapsed: boolean;
   onToggleSidebarCollapse: () => void;
   onOpenMobileSidebar: () => void;
+  toolsCount?: number;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -35,6 +36,7 @@ export const Header: React.FC<HeaderProps> = ({
   isSidebarCollapsed,
   onToggleSidebarCollapse,
   onOpenMobileSidebar,
+  toolsCount = 155,
 }) => {
   const [soundOn, setSoundOn] = useState(false);
 
@@ -75,7 +77,7 @@ export const Header: React.FC<HeaderProps> = ({
               onOpenMobileSidebar();
             }}
             title="Open utilities menu"
-            className="p-1.5 rounded-lg text-neutral-400 hover:text-neutral-100 hover:bg-neutral-900 border border-neutral-800 md:hidden"
+            className="w-9 h-9 rounded-lg flex items-center justify-center text-neutral-300 hover:text-neutral-100 hover:bg-neutral-900 active:bg-neutral-800 border border-neutral-800 md:hidden shrink-0 touch-manipulation"
           >
             <Menu className="w-4 h-4" />
           </button>
@@ -105,7 +107,7 @@ export const Header: React.FC<HeaderProps> = ({
                 Omnikit
               </span>
               <span className="hidden sm:inline-flex items-center gap-1 text-[9px] font-mono px-1.5 py-0.2 rounded bg-neutral-900 text-neutral-400 border border-neutral-800">
-                125
+                {toolsCount}
               </span>
             </div>
           </button>
@@ -117,7 +119,7 @@ export const Header: React.FC<HeaderProps> = ({
               <span className={`text-[9px] font-mono px-1.5 py-0.2 rounded border uppercase tracking-wider shrink-0 ${activeTheme.badgeClass}`}>
                 {activeTheme.shortLabel}
               </span>
-              <span className="text-neutral-200 font-medium truncate max-w-[120px] sm:max-w-xs text-xs">
+              <span className="text-neutral-200 font-medium truncate max-w-[100px] sm:max-w-xs text-xs">
                 {activeToolTitle}
               </span>
             </div>
