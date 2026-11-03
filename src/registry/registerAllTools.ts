@@ -11,7 +11,7 @@ import { WordMetricsView } from '../views/writing/WordMetricsView';
 import { TimestampView } from '../views/dev/TimestampView';
 import { JsonView } from '../views/dev/JsonView';
 
-// Expansion Views (Batch 1, 2, 3, 4)
+// Expansion Views (Batch 1, 2, 3, 4, 5)
 import { Base64View } from '../views/dev/Base64View';
 import { UrlView } from '../views/dev/UrlView';
 import { HashView } from '../views/dev/HashView';
@@ -30,6 +30,10 @@ import { SqlView } from '../views/dev/SqlView';
 import { UaView } from '../views/dev/UaView';
 import { AsciiView } from '../views/dev/AsciiView';
 import { RegexView } from '../views/dev/RegexView';
+import { BasicAuthView } from '../views/dev/BasicAuthView';
+import { MdHtmlView } from '../views/dev/MdHtmlView';
+import { BinaryView } from '../views/dev/BinaryView';
+import { HexView } from '../views/dev/HexView';
 
 import { ColorConverterView } from '../views/design/ColorConverterView';
 import { SvgView } from '../views/design/SvgView';
@@ -42,6 +46,8 @@ import { PaletteView } from '../views/design/PaletteView';
 import { CursorView } from '../views/design/CursorView';
 import { ClampView } from '../views/design/ClampView';
 import { AspectRatioCssView } from '../views/design/AspectRatioCssView';
+import { BorderRadiusView } from '../views/design/BorderRadiusView';
+import { BezierView } from '../views/design/BezierView';
 
 import { TextDiffView } from '../views/writing/TextDiffView';
 import { MarkdownPreviewView } from '../views/writing/MarkdownPreviewView';
@@ -51,13 +57,17 @@ import { SlugView } from '../views/writing/SlugView';
 import { TextAnalysisView } from '../views/writing/TextAnalysisView';
 import { TableView } from '../views/writing/TableView';
 import { ReadabilityView } from '../views/writing/ReadabilityView';
+import { AltCaseView } from '../views/writing/AltCaseView';
+import { CipherView } from '../views/writing/CipherView';
 
 import { NoteFrequencyView } from '../views/audio/NoteFrequencyView';
 import { TapTempoView } from '../views/audio/TapTempoView';
 import { TransposerView } from '../views/audio/TransposerView';
+import { MetronomeView } from '../views/audio/MetronomeView';
 
 import { ShutterView } from '../views/video/ShutterView';
 import { RecordTimeView } from '../views/video/RecordTimeView';
+import { TimelapseView } from '../views/video/TimelapseView';
 
 import { BitrateView } from '../views/video/BitrateView';
 import { SafeAreaView } from '../views/video/SafeAreaView';
@@ -692,5 +702,118 @@ export function initializeTools(): void {
     keywords: ['record time', 'card capacity', 'video storage', 'prores recording'],
     component: RecordTimeView,
     icon: '📼',
+  });
+
+  // ==========================================
+  // Batch 5 Registrations (Tools 56 - 65)
+  // ==========================================
+  registerTool({
+    id: 'basic-auth',
+    title: 'HTTP Basic Auth Generator & Decoder',
+    description: 'Generate standard HTTP Authorization Basic header tokens or decode incoming authorization headers',
+    category: 'dev',
+    tags: ['basic auth', 'auth', 'http', 'authorization', 'header', 'credentials', 'dev'],
+    keywords: ['basic auth generator', 'authorization basic', 'decode basic auth'],
+    component: BasicAuthView,
+    icon: '🔐',
+  });
+
+  registerTool({
+    id: 'markdown-html',
+    title: 'Markdown ↔ HTML Converter',
+    description: 'Convert bidirectionally between Markdown content and clean HTML tags',
+    category: 'dev',
+    tags: ['markdown', 'html', 'converter', 'parser', 'content', 'web', 'dev'],
+    keywords: ['markdown to html', 'html to markdown', 'md2html'],
+    component: MdHtmlView,
+    icon: '📄',
+  });
+
+  registerTool({
+    id: 'binary-converter',
+    title: 'Text ↔ Binary Byte Converter',
+    description: 'Translate ASCII / UTF-8 strings to 8-bit binary strings and decode binary bytes back to readable text',
+    category: 'dev',
+    tags: ['binary', 'bytes', 'ascii', 'encoder', 'decoder', 'text', 'dev'],
+    keywords: ['text to binary', 'binary to text', 'binary decoder'],
+    component: BinaryView,
+    icon: '🔢',
+  });
+
+  registerTool({
+    id: 'hex-converter',
+    title: 'Text ↔ Hex Byte String Converter',
+    description: 'Convert text strings to hexadecimal byte representations and decode hex dumps back into clear UTF-8 text',
+    category: 'dev',
+    tags: ['hex', 'hexadecimal', 'bytes', 'encoding', 'dump', 'dev'],
+    keywords: ['text to hex', 'hex to text', 'hex string'],
+    component: HexView,
+    icon: '🔣',
+  });
+
+  registerTool({
+    id: 'border-radius-blob',
+    title: 'CSS 8-Value Border Radius & Blob Generator',
+    description: 'Design organic fluid blob shapes using advanced CSS 8-value border-radius properties',
+    category: 'design',
+    tags: ['border-radius', 'blob', 'css', 'organic', 'shapes', 'design'],
+    keywords: ['8-value border radius', 'blob generator', 'fancy border radius'],
+    component: BorderRadiusView,
+    icon: '🫧',
+  });
+
+  registerTool({
+    id: 'cubic-bezier',
+    title: 'CSS Cubic-Bezier Easing Generator',
+    description: 'Design custom transition timing functions and preview smooth animation physics',
+    category: 'design',
+    tags: ['cubic-bezier', 'easing', 'transition', 'animation', 'css', 'curve', 'design'],
+    keywords: ['cubic bezier', 'ease curve', 'transition timing function'],
+    component: BezierView,
+    icon: '📈',
+  });
+
+  registerTool({
+    id: 'alt-case',
+    title: 'Alternating & Inverted Case Generator',
+    description: 'Transform text into sarcastic meme aLtErNaTiNg cAsE, inverted case, or randomized casing',
+    category: 'writing',
+    tags: ['alternating case', 'sarcasm', 'meme', 'invert', 'case', 'mocking', 'writing'],
+    keywords: ['sponge bob case', 'mocking case', 'invert case'],
+    component: AltCaseView,
+    icon: '🙃',
+  });
+
+  registerTool({
+    id: 'caesar-cipher',
+    title: 'Caesar & ROT13 Cipher Obfuscator',
+    description: 'Encrypt or scramble text using historical Caesar shift ciphers and symmetrical ROT13 obfuscation',
+    category: 'writing',
+    tags: ['caesar', 'rot13', 'cipher', 'obfuscate', 'crypto', 'shift', 'writing'],
+    keywords: ['caesar cipher', 'rot13', 'letter shift', 'secret message'],
+    component: CipherView,
+    icon: '🏛️',
+  });
+
+  registerTool({
+    id: 'metronome',
+    title: 'Precision Audio Metronome & Tempo Guide',
+    description: 'Interactive tempo metronome with downbeat accents, customizable time signatures, and classical Italian markings',
+    category: 'audio',
+    tags: ['metronome', 'tempo', 'bpm', 'click', 'rhythm', 'beats', 'audio', 'music'],
+    keywords: ['tempo clicker', 'metronome online', 'bpm guide'],
+    component: MetronomeView,
+    icon: '⏱️',
+  });
+
+  registerTool({
+    id: 'timelapse-calculator',
+    title: 'Timelapse Interval & Frame Calculator',
+    description: 'Calculate photography shooting intervals, total frames, and storage space for smooth timelapse videos',
+    category: 'video',
+    tags: ['timelapse', 'intervalometer', 'frames', 'camera', 'interval', 'storage', 'video', 'film'],
+    keywords: ['timelapse calculator', 'intervalometer interval', 'timelapse frames'],
+    component: TimelapseView,
+    icon: '⏳',
   });
 }
