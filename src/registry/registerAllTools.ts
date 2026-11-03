@@ -139,6 +139,21 @@ import { SampleRateView } from '../views/audio/SampleRateView';
 
 import { DofView } from '../views/video/DofView';
 
+import { CorsView } from '../views/dev/CorsView';
+import { HtaccessView } from '../views/dev/HtaccessView';
+import { SvgCleanView } from '../views/dev/SvgCleanView';
+import { UrlInspectView } from '../views/dev/UrlInspectView';
+
+import { GlowCardView } from '../views/design/GlowCardView';
+import { ColorBlindView } from '../views/design/ColorBlindView';
+
+import { AnagramView } from '../views/writing/AnagramView';
+import { RhymeView } from '../views/writing/RhymeView';
+
+import { HeadroomView } from '../views/audio/HeadroomView';
+
+import { LightingContrastView } from '../views/video/LightingContrastView';
+
 export function initializeTools(): void {
   // ==========================================
   // Video & Media (5 tools)
@@ -1445,5 +1460,118 @@ export function initializeTools(): void {
     keywords: ['depth of field calculator', 'hyperfocal distance', 'camera dof'],
     component: DofView,
     icon: '🎯',
+  });
+
+  // ==========================================
+  // Batch 11 Tools (116-125)
+  // ==========================================
+  registerTool({
+    id: 'cors-headers',
+    title: 'HTTP CORS Header Generator',
+    description: 'Generate standard Cross-Origin Resource Sharing (CORS) response headers, Express.js middleware, and Nginx blocks',
+    category: 'dev',
+    tags: ['cors', 'headers', 'http', 'express', 'nginx', 'preflight', 'security', 'dev'],
+    keywords: ['cors generator', 'access-control-allow-origin', 'cors headers'],
+    component: CorsView,
+    icon: '🌐',
+  });
+
+  registerTool({
+    id: 'htaccess-generator',
+    title: 'Apache .htaccess Redirect & Rewrite Generator',
+    description: 'Generate standard mod_rewrite rules for HTTPS redirection, trailing slash normalization, and 301 permanent redirects',
+    category: 'dev',
+    tags: ['htaccess', 'apache', 'redirect', 'rewrite', '301', 'https', 'dev'],
+    keywords: ['htaccess generator', '301 redirect', 'apache rewrite rules'],
+    component: HtaccessView,
+    icon: '📄',
+  });
+
+  registerTool({
+    id: 'svg-cleaner',
+    title: 'SVG Path Cleaner & Vector Optimizer',
+    description: 'Purge editor metadata, comments, and truncate floating-point coordinate precision to slim down vector SVGs',
+    category: 'dev',
+    tags: ['svg', 'clean', 'optimize', 'vector', 'minify svg', 'dev', 'design'],
+    keywords: ['svg cleaner', 'optimize svg', 'clean vector'],
+    component: SvgCleanView,
+    icon: '📐',
+  });
+
+  registerTool({
+    id: 'url-inspector',
+    title: 'Deep URL & Query String Inspector',
+    description: 'Deconstruct URLs into protocol, host, port, subpaths, anchor hash, and structured query parameter matrix',
+    category: 'dev',
+    tags: ['url', 'query', 'params', 'protocol', 'hash', 'parser', 'inspector', 'dev'],
+    keywords: ['url parser', 'query string inspector', 'url breakdown'],
+    component: UrlInspectView,
+    icon: '🔍',
+  });
+
+  registerTool({
+    id: 'neon-glow-card',
+    title: 'Cyberpunk Neon Glow Card Designer',
+    description: 'Design modern glowing cards with ambient outer drop glows, interior edge highlights, and blur backdrop filters',
+    category: 'design',
+    tags: ['glow', 'neon', 'card', 'box-shadow', 'cyberpunk', 'ambient', 'css', 'design'],
+    keywords: ['neon glow card', 'cyberpunk css', 'ambient card glow'],
+    component: GlowCardView,
+    icon: '✨',
+  });
+
+  registerTool({
+    id: 'color-blindness-simulator',
+    title: 'Color Vision Deficiency Simulator',
+    description: 'Simulate how your brand colors appear to users with Protanopia, Deuteranopia, Tritanopia, and Achromatopsia',
+    category: 'design',
+    tags: ['colorblind', 'accessibility', 'a11y', 'protanopia', 'deuteranopia', 'wcag', 'design'],
+    keywords: ['color blindness simulator', 'a11y color test', 'colorblind palette'],
+    component: ColorBlindView,
+    icon: '👁️',
+  });
+
+  registerTool({
+    id: 'anagram-palindrome',
+    title: 'Palindrome & Anagram Wordplay Analyzer',
+    description: 'Detect palindromic symmetry, verify anagrams between phrases, and compute distinct letter permutation counts',
+    category: 'writing',
+    tags: ['palindrome', 'anagram', 'wordplay', 'letters', 'symmetry', 'writing'],
+    keywords: ['palindrome checker', 'anagram solver', 'wordplay analyzer'],
+    component: AnagramView,
+    icon: '🔤',
+  });
+
+  registerTool({
+    id: 'poetic-meter',
+    title: 'Poetic Meter & Syllabic Scansion Tool',
+    description: 'Calculate line-by-line syllable counts, estimate poetic foot metrics (iambic scansion), and inspect rhythmic flow',
+    category: 'writing',
+    tags: ['poetry', 'meter', 'syllables', 'scansion', 'rhyme', 'iambic', 'lyrics', 'writing'],
+    keywords: ['poetic meter calculator', 'syllable counter poetry', 'scansion tool'],
+    component: RhymeView,
+    icon: '📜',
+  });
+
+  registerTool({
+    id: 'audio-headroom',
+    title: 'Mastering Audio Headroom & True Peak Analyzer',
+    description: 'Estimate true-peak clip risks, inter-sample overs, and loudness normalization gain adjustments across streaming platforms',
+    category: 'audio',
+    tags: ['headroom', 'true peak', 'lufs', 'mastering', 'spotify', 'clipping', 'audio', 'music'],
+    keywords: ['true peak headroom', 'lufs penalty calculator', 'mastering clipping test'],
+    component: HeadroomView,
+    icon: '🎚️',
+  });
+
+  registerTool({
+    id: 'lighting-contrast-ratio',
+    title: 'Cinema Lighting Contrast Ratio & Stop Calculator',
+    description: 'Calculate Key-to-Fill lighting ratios, exposure f-stop differences, and cinematic mood aesthetics for gaffers and DPs',
+    category: 'video',
+    tags: ['lighting', 'contrast ratio', 'cinematography', 'key light', 'fill light', 'stops', 'video', 'film'],
+    keywords: ['lighting contrast ratio', 'key to fill ratio', 'cinematography lighting calculator'],
+    component: LightingContrastView,
+    icon: '💡',
   });
 }

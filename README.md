@@ -3,13 +3,13 @@
 > **The Universal Computer Swiss Army Knife.**  
 > Lightning-fast, privacy-first client-side micro-tools for creators, designers, audio engineers, writers, and developers.
 
-Omnikit bundles **115 essential, daily-driver micro-utilities** under one clean roof with zero ads, zero trackers, and zero server roundtrips. Everything executes 100% locally in your browser.
+Omnikit bundles **125 essential, daily-driver micro-utilities** under one clean roof with zero ads, zero trackers, and zero server roundtrips. Everything executes 100% locally in your browser.
 
 ---
 
-## ⚡ 115 High-Utility Micro-Tools Across 5 Disciplines
+## ⚡ 125 High-Utility Micro-Tools Across 5 Disciplines
 
-### 🎬 Video & Film (14 Tools)
+### 🎬 Video & Film (15 Tools)
 - **SMPTE Timecode Calculator:** Frame-accurate timecode addition, subtraction, and duration calculations. Supports 23.976, 24, 25, 29.97 drop-frame, 30, and 60 fps without drift.
 - **Aspect Ratio & Letterbox Calculator:** Simplified aspect ratios (Euclidean GCD algorithm), decimal fractions, and exact padding math for 16:9, 9:16, 4:3, and 1:1 containers.
 - **Video Bitrate & Storage Estimator:** Calculate expected export file sizes from duration and bitrate, or find the maximum bitrate to fit upload limits (e.g. 25MB Discord limit).
@@ -24,8 +24,9 @@ Omnikit bundles **115 essential, daily-driver micro-utilities** under one clean 
 - **Video Resolution & Proxy Scaler:** Calculate proportional downscaling, proxy dimensions, aspect ratio parity, and pixel counts for video codecs.
 - **Video Letterbox & Pillarbox Matte Visualizer:** Calculate exact matte bar dimensions (top/bottom or pillarbox left/right) and active screen surface efficiency.
 - **Camera Depth of Field (DoF) & Hyperfocal Geometry:** Calculate hyperfocal distance, near limit, far limit, and total depth of field sharpness zone.
+- **Cinema Lighting Contrast Ratio & Stop Calculator:** Calculate Key-to-Fill lighting ratios, exposure f-stop differences, and cinematic mood aesthetics for gaffers and DPs.
 
-### 🎵 Audio & Music (10 Tools)
+### 🎵 Audio & Music (11 Tools)
 - **BPM Delay & Reverb Sync:** Converts tempo into delay millisecond timings for standard, dotted, and triplet divisions (1/1 through 1/64 notes) plus reverb pre-delay and room decay sync guides.
 - **Musical Note to Frequency (Hz):** Bidirectional conversion between musical notes, MIDI numbers, and frequencies with custom A4 concert pitch tuning (432Hz, 440Hz, 442Hz).
 - **Tap Tempo BPM Detector:** High-precision interactive tap metronome calculating tempo from sequential keyboard or mouse taps.
@@ -36,8 +37,9 @@ Omnikit bundles **115 essential, daily-driver micro-utilities** under one clean 
 - **Tone Synthesizer & Audio Oscillator:** Generate precise calibration sine waves, test tones, and analyze fundamental harmonic frequencies.
 - **BPM to Hz Frequency & Period Converter:** Translate musical tempo into LFO oscillation frequencies in Hertz (Hz) and waveform cycle periods in milliseconds.
 - **Audio Sample Rate & Nyquist Calculator:** Inspect acoustic bandwidth limits, Nyquist cutoffs, and uncompressed PCM bitrates across broadcast standards.
+- **Mastering Audio Headroom & True Peak Analyzer:** Estimate true-peak clip risks, inter-sample overs, and loudness normalization gain adjustments across streaming platforms.
 
-### 🎨 Visual & UI Design (25 Tools)
+### 🎨 Visual & UI Design (27 Tools)
 - **WCAG 2.1 Color Contrast Checker:** Instant relative luminance and contrast ratio calculations up to 21:1. Assesses WCAG 2.1 AA and AAA compliance for normal text, large text, and graphical UI components.
 - **PX ↔ REM Converter:** Bidirectional pixel-to-REM converter with configurable root font size and quick-lookup reference scales.
 - **Color Format Converter:** Seamless conversions between HEX (#RRGGBB / #RRGGBBAA), RGB(A), and HSL(A) with live swatches and copyable CSS tokens.
@@ -63,8 +65,10 @@ Omnikit bundles **115 essential, daily-driver micro-utilities** under one clean 
 - **CSS Box Model & Sizing Visualizer:** Inspect outer rendered dimensions versus inner content areas between content-box and border-box sizing models.
 - **CSS Grid Layout Generator:** Design responsive CSS Grid structures with live preview, fr/auto unit controls, and Tailwind utility classes.
 - **CSS Corner Ribbon & Badge Generator:** Design diagonal corner ribbons for pricing tiers, new badges, and promotional product cards.
+- **Cyberpunk Neon Glow Card Designer:** Design modern glowing cards with ambient outer drop glows, interior edge highlights, and blur backdrop filters.
+- **Color Vision Deficiency Simulator:** Simulate how your brand colors appear to users with Protanopia, Deuteranopia, Tritanopia, and Achromatopsia.
 
-### ✍️ Writing & Copy (22 Tools)
+### ✍️ Writing & Copy (24 Tools)
 - **Multi-Style Case Converter:** Transforms text across 9 casing conventions (camelCase, PascalCase, kebab-case, snake_case, CONSTANT_CASE, Title Case preserving minor words, Sentence case, etc.).
 - **Word & Reading Metrics:** Real-time counters for characters, words, sentences, paragraphs, average word length, reading time (200 WPM), and speaking time (130 WPM).
 - **Side-by-Side Text Diff Checker:** Instant line-by-line comparison highlighting additions, deletions, and unchanged text.
@@ -87,8 +91,10 @@ Omnikit bundles **115 essential, daily-driver micro-utilities** under one clean 
 - **Markdown Footnote & Citation Builder:** Format academic footnotes, reference citations, and bibliography markers according to GitHub Flavored Markdown.
 - **International Morse Code Translator:** Translate plain text to international Morse code dots and dashes, or decode transmissions back to readable text.
 - **Zalgo Glitch & Corrupted Text Generator:** Inject chaotic stacked Unicode diacritical marks to generate void, cursed, and glitch aesthetic typography.
+- **Palindrome & Anagram Wordplay Analyzer:** Detect palindromic symmetry, verify anagrams between phrases, and compute distinct letter permutation counts.
+- **Poetic Meter & Syllabic Scansion Tool:** Calculate line-by-line syllable counts, estimate poetic foot metrics (iambic scansion), and inspect rhythmic flow.
 
-### 💻 Developer & Data (44 Tools)
+### 💻 Developer & Data (48 Tools)
 - **Unix Epoch Timestamp Converter:** Bidirectional conversion between Unix timestamps (seconds & milliseconds) and ISO 8601 UTC / local datetime strings, complete with live epoch clock.
 - **JSON Formatter & Auto-Fixer:** Formats, minifies, validates, and automatically repairs malformed JSON (single quotes, trailing commas, and unquoted keys).
 - **Base64 String Converter:** Encodes and decodes strings with standard Base64 or URL-safe encoding without padding.
@@ -133,12 +139,16 @@ Omnikit bundles **115 essential, daily-driver micro-utilities** under one clean 
 - **Semantic Versioning (SemVer) Inspector & Bumper:** Parse version strings, compare precedence between release versions, and calculate major/minor/patch increments.
 - **SQL Query Minifier & Comment Stripper:** Compress database queries, strip single/multi-line comments, and collapse whitespace for embedded SQL strings.
 - **Permission Bitmask Flag Inspector & Builder:** Inspect bitwise flags, calculate combined permission integers, binary bit sequences, and hexadecimal representations.
+- **HTTP CORS Header Generator:** Generate standard Cross-Origin Resource Sharing (CORS) response headers, Express.js middleware, and Nginx blocks.
+- **Apache .htaccess Redirect & Rewrite Generator:** Generate standard mod_rewrite rules for HTTPS redirection, trailing slash normalization, and 301 permanent redirects.
+- **SVG Path Cleaner & Vector Optimizer:** Purge editor metadata, comments, and truncate floating-point coordinate precision to slim down vector SVGs.
+- **Deep URL & Query String Inspector:** Deconstruct URLs into protocol, host, port, subpaths, anchor hash, and structured query parameter matrix.
 
 ---
 
 ## 🚀 Keyboard-First Ergonomics
 
-- **Command Palette:** Press <kbd>Ctrl</kbd>+<kbd>K</kbd>, <kbd>Cmd</kbd>+<kbd>K</kbd>, or <kbd>/</kbd> anywhere to trigger the fuzzy search bar across all 115 tools.
+- **Command Palette:** Press <kbd>Ctrl</kbd>+<kbd>K</kbd>, <kbd>Cmd</kbd>+<kbd>K</kbd>, or <kbd>/</kbd> anywhere to trigger the fuzzy search bar across all 125 tools.
 - **Category Filter Pills:** Switch instantly between disciplines (`Video & Film`, `Audio & Music`, `Design & UI`, `Writing & Copy`, `Dev & Data`).
 - **Deep Linking:** Hash-based routing allows sharing or bookmarking specific tools (e.g. `/#chmod-calculator`, `/#qr-code`, `/#jwt-decoder`).
 - **Zero Data Leakage:** 100% client-side computation. Sensitive tokens, text, and data never leave your browser sandbox.
