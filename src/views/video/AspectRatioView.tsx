@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ToolShell, CopyButton } from '../../components/ToolShell';
+import { ToolShell } from '../../components/ToolShell';
 import { calculateAspectRatio } from '../../engines/video/aspectRatio';
 
 const PRESETS = [
@@ -50,7 +50,7 @@ export const AspectRatioView: React.FC = () => {
         </div>
 
         {/* Inputs */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div>
             <label className="block text-xs text-neutral-400 mb-1">Width (px)</label>
             <input
@@ -68,6 +68,19 @@ export const AspectRatioView: React.FC = () => {
               onChange={(e) => setHeight(parseInt(e.target.value, 10) || 0)}
               className="w-full bg-neutral-950 border border-neutral-800 rounded-lg px-3 py-2 text-lg font-mono text-neutral-100 focus:outline-none focus:border-emerald-500"
             />
+          </div>
+          <div>
+            <label className="block text-xs text-neutral-400 mb-1">Target Container</label>
+            <select
+              value={containerRatio}
+              onChange={(e) => setContainerRatio(e.target.value)}
+              className="w-full bg-neutral-950 border border-neutral-800 rounded-lg px-3 py-2 text-sm font-mono text-neutral-100 focus:outline-none focus:border-emerald-500"
+            >
+              <option value="16:9">16:9 Container</option>
+              <option value="9:16">9:16 Vertical</option>
+              <option value="4:3">4:3 Classic</option>
+              <option value="1:1">1:1 Square</option>
+            </select>
           </div>
         </div>
 

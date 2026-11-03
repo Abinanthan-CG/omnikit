@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ToolShell, CopyButton } from '../../components/ToolShell';
+import { ToolShell } from '../../components/ToolShell';
 import { calculateBpmTimings } from '../../engines/audio/bpmCalculator';
 
 const COMMON_BPMS = [80, 95, 120, 128, 140, 150, 174];

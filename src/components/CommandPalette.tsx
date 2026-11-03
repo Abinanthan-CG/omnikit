@@ -102,6 +102,26 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
           </kbd>
         </div>
 
+        {/* Category Filter Chips */}
+        <div className="flex items-center gap-1.5 px-3 py-2 bg-neutral-950/60 border-b border-neutral-800/80 overflow-x-auto text-[11px]">
+          {(['all', 'video', 'audio', 'design', 'writing', 'dev'] as ToolCategory[]).map((cat) => (
+            <button
+              key={cat}
+              onClick={() => {
+                setCategory(cat);
+                setSelectedIndex(0);
+              }}
+              className={`px-2.5 py-1 rounded-md capitalize font-medium transition-colors ${
+                category === cat
+                  ? 'bg-emerald-500 text-neutral-950 font-bold'
+                  : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800'
+              }`}
+            >
+              {cat === 'all' ? 'All' : cat}
+            </button>
+          ))}
+        </div>
+
         {/* Results List */}
         <div className="overflow-y-auto p-2 divide-y divide-neutral-800/40">
           {filtered.length === 0 ? (
