@@ -3,13 +3,13 @@
 > **The Universal Computer Swiss Army Knife.**  
 > Lightning-fast, privacy-first client-side micro-tools for creators, designers, audio engineers, writers, and developers.
 
-Omnikit bundles **65 essential, daily-driver micro-utilities** under one clean roof with zero ads, zero trackers, and zero server roundtrips. Everything executes 100% locally in your browser.
+Omnikit bundles **75 essential, daily-driver micro-utilities** under one clean roof with zero ads, zero trackers, and zero server roundtrips. Everything executes 100% locally in your browser.
 
 ---
 
-## ⚡ 65 High-Utility Micro-Tools Across 5 Disciplines
+## ⚡ 75 High-Utility Micro-Tools Across 5 Disciplines
 
-### 🎬 Video & Film (9 Tools)
+### 🎬 Video & Film (10 Tools)
 - **SMPTE Timecode Calculator:** Frame-accurate timecode addition, subtraction, and duration calculations. Supports 23.976, 24, 25, 29.97 drop-frame, 30, and 60 fps without drift.
 - **Aspect Ratio & Letterbox Calculator:** Simplified aspect ratios (Euclidean GCD algorithm), decimal fractions, and exact padding math for 16:9, 9:16, 4:3, and 1:1 containers.
 - **Video Bitrate & Storage Estimator:** Calculate expected export file sizes from duration and bitrate, or find the maximum bitrate to fit upload limits (e.g. 25MB Discord limit).
@@ -19,15 +19,17 @@ Omnikit bundles **65 essential, daily-driver micro-utilities** under one clean r
 - **Shutter Speed & Shutter Angle (180° Rule):** Calculate cinema shutter speed fractions from rotary shutter angles and framerates for natural cinematic motion blur.
 - **Video Recording Time & Storage Estimator:** Calculate how many hours and minutes of footage can record onto your SD card, CFexpress, or SSD across ProRes, RAW, and H.264/H.265.
 - **Timelapse Interval & Frame Calculator:** Calculate photography shooting intervals, total frames, and storage space for smooth timelapse videos.
+- **Golden Hour & Blue Hour Sun Calculator:** Calculate morning and evening Golden Hour, Blue Hour, and solar noon for outdoor photography shoots.
 
-### 🎵 Audio & Music (5 Tools)
+### 🎵 Audio & Music (6 Tools)
 - **BPM Delay & Reverb Sync:** Converts tempo into delay millisecond timings for standard, dotted, and triplet divisions (1/1 through 1/64 notes) plus reverb pre-delay and room decay sync guides.
 - **Musical Note to Frequency (Hz):** Bidirectional conversion between musical notes, MIDI numbers, and frequencies with custom A4 concert pitch tuning (432Hz, 440Hz, 442Hz).
 - **Tap Tempo BPM Detector:** High-precision interactive tap metronome calculating tempo from sequential keyboard or mouse taps.
 - **Pitch Shift & Tape Speed Transposer:** Calculate pitch shift ratios, semitone alterations, cent fine-tuning, and tape speed factors across vintage tape or digital sampler rates.
 - **Precision Audio Metronome & Tempo Guide:** Interactive tempo metronome with downbeat accents, customizable time signatures, and classical Italian markings.
+- **Audio Decibel (dB) & Gain Multiplier:** Translate audio decibel gain (dB) to linear voltage amplitude multipliers and power ratios.
 
-### 🎨 Visual & UI Design (15 Tools)
+### 🎨 Visual & UI Design (17 Tools)
 - **WCAG 2.1 Color Contrast Checker:** Instant relative luminance and contrast ratio calculations up to 21:1. Assesses WCAG 2.1 AA and AAA compliance for normal text, large text, and graphical UI components.
 - **PX ↔ REM Converter:** Bidirectional pixel-to-REM converter with configurable root font size and quick-lookup reference scales.
 - **Color Format Converter:** Seamless conversions between HEX (#RRGGBB / #RRGGBBAA), RGB(A), and HSL(A) with live swatches and copyable CSS tokens.
@@ -43,8 +45,10 @@ Omnikit bundles **65 essential, daily-driver micro-utilities** under one clean r
 - **CSS Aspect-Ratio Rule Generator:** Generate modern CSS aspect-ratio properties and legacy padding-top container hack snippets.
 - **CSS 8-Value Border Radius & Blob Generator:** Design organic fluid blob shapes using advanced CSS 8-value border-radius properties.
 - **CSS Cubic-Bezier Easing Generator:** Design custom transition timing functions and preview smooth animation physics.
+- **CSS Clip-Path Polygon Generator:** Design geometric UI mask polygons and cutouts with live vector shape preview.
+- **CSS 2D Transform & Matrix Visualizer:** Interactive 2D transforms (translate, rotate, scale, skew) with exact affine matrix() calculation.
 
-### ✍️ Writing & Copy (12 Tools)
+### ✍️ Writing & Copy (14 Tools)
 - **Multi-Style Case Converter:** Transforms text across 9 casing conventions (camelCase, PascalCase, kebab-case, snake_case, CONSTANT_CASE, Title Case preserving minor words, Sentence case, etc.).
 - **Word & Reading Metrics:** Real-time counters for characters, words, sentences, paragraphs, average word length, reading time (200 WPM), and speaking time (130 WPM).
 - **Side-by-Side Text Diff Checker:** Instant line-by-line comparison highlighting additions, deletions, and unchanged text.
@@ -57,8 +61,10 @@ Omnikit bundles **65 essential, daily-driver micro-utilities** under one clean r
 - **Flesch Readability & Grade Level:** Evaluate reading ease, Flesch-Kincaid school grade level, and average sentence complexity metrics.
 - **Alternating & Inverted Case Generator:** Transform text into sarcastic meme aLtErNaTiNg cAsE, inverted case, or randomized casing.
 - **Caesar & ROT13 Cipher Obfuscator:** Encrypt or scramble text using historical Caesar shift ciphers and symmetrical ROT13 obfuscation.
+- **Text Truncation & Smart Ellipsis:** Trim long text strings to precise character or word boundaries with custom ellipsis markers.
+- **Unicode Symbol & Special Character Map:** Quick lookup and single-click copy for typographical dashes, math symbols, currency, and tech keys.
 
-### 💻 Developer & Data (24 Tools)
+### 💻 Developer & Data (28 Tools)
 - **Unix Epoch Timestamp Converter:** Bidirectional conversion between Unix timestamps (seconds & milliseconds) and ISO 8601 UTC / local datetime strings, complete with live epoch clock.
 - **JSON Formatter & Auto-Fixer:** Formats, minifies, validates, and automatically repairs malformed JSON (single quotes, trailing commas, and unquoted keys).
 - **Base64 String Converter:** Encodes and decodes strings with standard Base64 or URL-safe encoding without padding.
@@ -83,6 +89,10 @@ Omnikit bundles **65 essential, daily-driver micro-utilities** under one clean r
 - **Markdown ↔ HTML Converter:** Convert bidirectionally between Markdown content and clean HTML tags.
 - **Text ↔ Binary Byte Converter:** Translate ASCII / UTF-8 strings to 8-bit binary strings and decode binary bytes back to readable text.
 - **Text ↔ Hex Byte String Converter:** Convert text strings to hexadecimal byte representations and decode hex dumps back into clear UTF-8 text.
+- **IPv4 Subnet & CIDR Calculator:** Calculate netmask, wildcard mask, broadcast address, and usable host ranges for any IPv4 CIDR block.
+- **MAC Address Generator & Formatter:** Generate random unicast MAC addresses or convert notation between colon, hyphen, Cisco dot, and raw hex.
+- **Secure Password & Secret Generator:** Cryptographically secure random password generator using Web Crypto API with entropy scoring.
+- **JSON ↔ CSV Table Converter:** Convert bidirectionally between JSON array objects and comma-separated CSV tabular data.
 
 ---
 

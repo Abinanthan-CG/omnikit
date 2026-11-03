@@ -11,7 +11,7 @@ import { WordMetricsView } from '../views/writing/WordMetricsView';
 import { TimestampView } from '../views/dev/TimestampView';
 import { JsonView } from '../views/dev/JsonView';
 
-// Expansion Views (Batch 1, 2, 3, 4, 5)
+// Expansion Views (Batch 1, 2, 3, 4, 5, 6)
 import { Base64View } from '../views/dev/Base64View';
 import { UrlView } from '../views/dev/UrlView';
 import { HashView } from '../views/dev/HashView';
@@ -34,6 +34,10 @@ import { BasicAuthView } from '../views/dev/BasicAuthView';
 import { MdHtmlView } from '../views/dev/MdHtmlView';
 import { BinaryView } from '../views/dev/BinaryView';
 import { HexView } from '../views/dev/HexView';
+import { SubnetView } from '../views/dev/SubnetView';
+import { MacView } from '../views/dev/MacView';
+import { PasswordView } from '../views/dev/PasswordView';
+import { CsvView } from '../views/dev/CsvView';
 
 import { ColorConverterView } from '../views/design/ColorConverterView';
 import { SvgView } from '../views/design/SvgView';
@@ -48,6 +52,8 @@ import { ClampView } from '../views/design/ClampView';
 import { AspectRatioCssView } from '../views/design/AspectRatioCssView';
 import { BorderRadiusView } from '../views/design/BorderRadiusView';
 import { BezierView } from '../views/design/BezierView';
+import { ClipPathView } from '../views/design/ClipPathView';
+import { TransformView } from '../views/design/TransformView';
 
 import { TextDiffView } from '../views/writing/TextDiffView';
 import { MarkdownPreviewView } from '../views/writing/MarkdownPreviewView';
@@ -59,15 +65,19 @@ import { TableView } from '../views/writing/TableView';
 import { ReadabilityView } from '../views/writing/ReadabilityView';
 import { AltCaseView } from '../views/writing/AltCaseView';
 import { CipherView } from '../views/writing/CipherView';
+import { TruncateView } from '../views/writing/TruncateView';
+import { SymbolView } from '../views/writing/SymbolView';
 
 import { NoteFrequencyView } from '../views/audio/NoteFrequencyView';
 import { TapTempoView } from '../views/audio/TapTempoView';
 import { TransposerView } from '../views/audio/TransposerView';
 import { MetronomeView } from '../views/audio/MetronomeView';
+import { DecibelView } from '../views/audio/DecibelView';
 
 import { ShutterView } from '../views/video/ShutterView';
 import { RecordTimeView } from '../views/video/RecordTimeView';
 import { TimelapseView } from '../views/video/TimelapseView';
+import { SunView } from '../views/video/SunView';
 
 import { BitrateView } from '../views/video/BitrateView';
 import { SafeAreaView } from '../views/video/SafeAreaView';
@@ -815,5 +825,118 @@ export function initializeTools(): void {
     keywords: ['timelapse calculator', 'intervalometer interval', 'timelapse frames'],
     component: TimelapseView,
     icon: '⏳',
+  });
+
+  // ==========================================
+  // Batch 6 Registrations (Tools 66 - 75)
+  // ==========================================
+  registerTool({
+    id: 'subnet-calculator',
+    title: 'IPv4 Subnet & CIDR Calculator',
+    description: 'Calculate netmask, wildcard mask, broadcast address, and usable host ranges for any IPv4 CIDR block',
+    category: 'dev',
+    tags: ['subnet', 'cidr', 'ipv4', 'network', 'ip', 'netmask', 'broadcast', 'dev'],
+    keywords: ['subnet mask', 'cidr calculator', 'ip range', 'usable hosts'],
+    component: SubnetView,
+    icon: '🌐',
+  });
+
+  registerTool({
+    id: 'mac-formatter',
+    title: 'MAC Address Generator & Formatter',
+    description: 'Generate random unicast MAC addresses or convert notation between colon, hyphen, Cisco dot, and raw hex',
+    category: 'dev',
+    tags: ['mac', 'address', 'ethernet', 'hardware', 'cisco', 'format', 'dev'],
+    keywords: ['mac address', 'mac generator', 'cisco mac format'],
+    component: MacView,
+    icon: '🏷️',
+  });
+
+  registerTool({
+    id: 'password-generator',
+    title: 'Secure Password & Secret Generator',
+    description: 'Cryptographically secure random password generator using Web Crypto API with entropy scoring',
+    category: 'dev',
+    tags: ['password', 'generator', 'security', 'crypto', 'token', 'secret', 'dev'],
+    keywords: ['random password', 'secure password', 'password entropy'],
+    component: PasswordView,
+    icon: '🔑',
+  });
+
+  registerTool({
+    id: 'json-csv',
+    title: 'JSON ↔ CSV Table Converter',
+    description: 'Convert bidirectionally between JSON array objects and comma-separated CSV tabular data',
+    category: 'dev',
+    tags: ['json', 'csv', 'convert', 'table', 'spreadsheet', 'excel', 'dev'],
+    keywords: ['json to csv', 'csv to json', 'export csv'],
+    component: CsvView,
+    icon: '📑',
+  });
+
+  registerTool({
+    id: 'css-clip-path',
+    title: 'CSS Clip-Path Polygon Generator',
+    description: 'Design geometric UI mask polygons and cutouts with live vector shape preview',
+    category: 'design',
+    tags: ['clip-path', 'polygon', 'css', 'mask', 'geometry', 'shapes', 'design'],
+    keywords: ['css clip path', 'polygon generator', 'shape mask'],
+    component: ClipPathView,
+    icon: '✂️',
+  });
+
+  registerTool({
+    id: 'transform-matrix',
+    title: 'CSS 2D Transform & Matrix Visualizer',
+    description: 'Interactive 2D transforms (translate, rotate, scale, skew) with exact affine matrix() calculation',
+    category: 'design',
+    tags: ['transform', 'matrix', 'rotate', 'scale', 'skew', 'css', 'affine', 'design'],
+    keywords: ['css transform', 'matrix 2d', 'transform visualizer'],
+    component: TransformView,
+    icon: '🔄',
+  });
+
+  registerTool({
+    id: 'truncate-text',
+    title: 'Text Truncation & Smart Ellipsis',
+    description: 'Trim long text strings to precise character or word boundaries with custom ellipsis markers',
+    category: 'writing',
+    tags: ['truncate', 'ellipsis', 'shorten', 'text', 'word boundary', 'trim', 'writing'],
+    keywords: ['truncate string', 'smart ellipsis', 'word truncate'],
+    component: TruncateView,
+    icon: '✂️',
+  });
+
+  registerTool({
+    id: 'unicode-symbols',
+    title: 'Unicode Symbol & Special Character Map',
+    description: 'Quick lookup and single-click copy for typographical dashes, math symbols, currency, and tech keys',
+    category: 'writing',
+    tags: ['unicode', 'symbol', 'character', 'special', 'em dash', 'arrows', 'math', 'writing'],
+    keywords: ['unicode map', 'special characters', 'copy symbols'],
+    component: SymbolView,
+    icon: '🔣',
+  });
+
+  registerTool({
+    id: 'decibel-calculator',
+    title: 'Audio Decibel (dB) & Gain Multiplier',
+    description: 'Translate audio decibel gain (dB) to linear voltage amplitude multipliers and power ratios',
+    category: 'audio',
+    tags: ['decibel', 'db', 'gain', 'voltage', 'power', 'ratio', 'audio', 'sound'],
+    keywords: ['db to ratio', 'audio gain', 'decibel multiplier'],
+    component: DecibelView,
+    icon: '🎚️',
+  });
+
+  registerTool({
+    id: 'golden-hour',
+    title: 'Golden Hour & Blue Hour Sun Calculator',
+    description: 'Calculate morning and evening Golden Hour, Blue Hour, and solar noon for outdoor photography shoots',
+    category: 'video',
+    tags: ['golden hour', 'blue hour', 'sun', 'sunrise', 'sunset', 'photography', 'video', 'film'],
+    keywords: ['golden hour calculator', 'blue hour', 'magic hour', 'solar noon'],
+    component: SunView,
+    icon: '🌅',
   });
 }
