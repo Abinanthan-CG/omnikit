@@ -3,19 +3,21 @@
 > **The Universal Computer Swiss Army Knife.**  
 > Lightning-fast, privacy-first client-side micro-tools for creators, designers, audio engineers, writers, and developers.
 
-Omnikit bundles **45 essential, daily-driver micro-utilities** under one clean roof with zero ads, zero trackers, and zero server roundtrips. Everything executes 100% locally in your browser.
+Omnikit bundles **55 essential, daily-driver micro-utilities** under one clean roof with zero ads, zero trackers, and zero server roundtrips. Everything executes 100% locally in your browser.
 
 ---
 
-## ⚡ 45 High-Utility Micro-Tools Across 5 Disciplines
+## ⚡ 55 High-Utility Micro-Tools Across 5 Disciplines
 
-### 🎬 Video & Film (6 Tools)
+### 🎬 Video & Film (8 Tools)
 - **SMPTE Timecode Calculator:** Frame-accurate timecode addition, subtraction, and duration calculations. Supports 23.976, 24, 25, 29.97 drop-frame, 30, and 60 fps without drift.
 - **Aspect Ratio & Letterbox Calculator:** Simplified aspect ratios (Euclidean GCD algorithm), decimal fractions, and exact padding math for 16:9, 9:16, 4:3, and 1:1 containers.
 - **Video Bitrate & Storage Estimator:** Calculate expected export file sizes from duration and bitrate, or find the maximum bitrate to fit upload limits (e.g. 25MB Discord limit).
 - **Video Safe Area Overlay Guide:** Pixel-accurate margins for broadcast SMPTE Action Safe (90%), Title Safe (80%), and social 9:16 UI exclusion margins (TikTok / Reels).
 - **Frame Rate Speed Converter:** Frame-for-frame scaling and playback speed percentage calculations across standard film, PAL, and NTSC framerates.
 - **Camera Lens & Sensor Crop Factor Calculator:** 35mm equivalent focal length and horizontal/vertical field of view calculations across Full Frame, Super 35, APS-C, and MFT sensors.
+- **Shutter Speed & Shutter Angle (180° Rule):** Calculate cinema shutter speed fractions from rotary shutter angles and framerates for natural cinematic motion blur.
+- **Video Recording Time & Storage Estimator:** Calculate how many hours and minutes of footage can record onto your SD card, CFexpress, or SSD across ProRes, RAW, and H.264/H.265.
 
 ### 🎵 Audio & Music (4 Tools)
 - **BPM Delay & Reverb Sync:** Converts tempo into delay millisecond timings for standard, dotted, and triplet divisions (1/1 through 1/64 notes) plus reverb pre-delay and room decay sync guides.
@@ -23,7 +25,7 @@ Omnikit bundles **45 essential, daily-driver micro-utilities** under one clean r
 - **Tap Tempo BPM Detector:** High-precision interactive tap metronome calculating tempo from sequential keyboard or mouse taps.
 - **Pitch Shift & Tape Speed Transposer:** Calculate pitch shift ratios, semitone alterations, cent fine-tuning, and tape speed factors across vintage tape or digital sampler rates.
 
-### 🎨 Visual & UI Design (11 Tools)
+### 🎨 Visual & UI Design (13 Tools)
 - **WCAG 2.1 Color Contrast Checker:** Instant relative luminance and contrast ratio calculations up to 21:1. Assesses WCAG 2.1 AA and AAA compliance for normal text, large text, and graphical UI components.
 - **PX ↔ REM Converter:** Bidirectional pixel-to-REM converter with configurable root font size and quick-lookup reference scales.
 - **Color Format Converter:** Seamless conversions between HEX (#RRGGBB / #RRGGBBAA), RGB(A), and HSL(A) with live swatches and copyable CSS tokens.
@@ -35,8 +37,10 @@ Omnikit bundles **45 essential, daily-driver micro-utilities** under one clean r
 - **CSS Glassmorphism Generator:** Design modern frosted glass UI cards with backdrop blur, transparency, borders, and copyable CSS.
 - **Color Tint & Shade Palette Generator:** Generate complete 50-950 Tailwind-style color step scales from any base hex color.
 - **CSS Cursor Visualizer & Rule Generator:** Browse, test, and copy standard CSS cursor properties with interactive hover test area.
+- **CSS Clamp() Fluid Typography Calculator:** Calculate fluid clamp() formulas for responsive typography and spacing across any viewport range.
+- **CSS Aspect-Ratio Rule Generator:** Generate modern CSS aspect-ratio properties and legacy padding-top container hack snippets.
 
-### ✍️ Writing & Copy (8 Tools)
+### ✍️ Writing & Copy (10 Tools)
 - **Multi-Style Case Converter:** Transforms text across 9 casing conventions (camelCase, PascalCase, kebab-case, snake_case, CONSTANT_CASE, Title Case preserving minor words, Sentence case, etc.).
 - **Word & Reading Metrics:** Real-time counters for characters, words, sentences, paragraphs, average word length, reading time (200 WPM), and speaking time (130 WPM).
 - **Side-by-Side Text Diff Checker:** Instant line-by-line comparison highlighting additions, deletions, and unchanged text.
@@ -45,8 +49,10 @@ Omnikit bundles **45 essential, daily-driver micro-utilities** under one clean r
 - **Lorem Ipsum Copy Generator:** Fast dummy placeholder text generator by paragraphs, sentences, or words with optional standard Latin opening.
 - **URL Slug & Filename Normalizer:** Sanitizes article headings and file names into SEO-friendly, clean URL slugs by stripping accents and special characters.
 - **Keyword Density & Frequency Analyzer:** Analyze word frequency counts, percentage densities, and SEO occurrence metrics in text.
+- **Markdown Table Generator & Editor:** Design interactive tabular data with custom alignments and copy clean GitHub Flavored Markdown.
+- **Flesch Readability & Grade Level:** Evaluate reading ease, Flesch-Kincaid school grade level, and average sentence complexity metrics.
 
-### 💻 Developer & Data (16 Tools)
+### 💻 Developer & Data (20 Tools)
 - **Unix Epoch Timestamp Converter:** Bidirectional conversion between Unix timestamps (seconds & milliseconds) and ISO 8601 UTC / local datetime strings, complete with live epoch clock.
 - **JSON Formatter & Auto-Fixer:** Formats, minifies, validates, and automatically repairs malformed JSON (single quotes, trailing commas, and unquoted keys).
 - **Base64 String Converter:** Encodes and decodes strings with standard Base64 or URL-safe encoding without padding.
@@ -63,6 +69,10 @@ Omnikit bundles **45 essential, daily-driver micro-utilities** under one clean r
 - **XML Formatter & Minifier:** Beautify indentation or collapse XML feeds, sitemaps, and payloads into minified single lines.
 - **YAML ↔ JSON Bidirectional Converter:** Convert between YAML manifests and JSON data with syntax formatting and error detection.
 - **Data Storage & Byte Unit Converter:** Convert data amounts between Bytes, KB, MB, GB, TB, and binary kibibytes (KiB, MiB, GiB).
+- **SQL Formatter & Beautifier:** Format and indent raw SQL queries with syntax structure and uppercase clause keywords.
+- **User Agent Inspector & Parser:** Inspect your active browser User Agent or parse arbitrary client strings into structured properties.
+- **ASCII Text Banner Generator:** Generate retro ASCII block banners and typography headers for terminal scripts and code comments.
+- **RegEx Match Tester & Groups:** Test Regular Expressions in real-time with capture group extraction, flags, and match indices.
 
 ---
 

@@ -11,7 +11,7 @@ import { WordMetricsView } from '../views/writing/WordMetricsView';
 import { TimestampView } from '../views/dev/TimestampView';
 import { JsonView } from '../views/dev/JsonView';
 
-// Expansion Views (Batch 1, 2, 3)
+// Expansion Views (Batch 1, 2, 3, 4)
 import { Base64View } from '../views/dev/Base64View';
 import { UrlView } from '../views/dev/UrlView';
 import { HashView } from '../views/dev/HashView';
@@ -26,6 +26,10 @@ import { DockerView } from '../views/dev/DockerView';
 import { XmlView } from '../views/dev/XmlView';
 import { YamlView } from '../views/dev/YamlView';
 import { ByteView } from '../views/dev/ByteView';
+import { SqlView } from '../views/dev/SqlView';
+import { UaView } from '../views/dev/UaView';
+import { AsciiView } from '../views/dev/AsciiView';
+import { RegexView } from '../views/dev/RegexView';
 
 import { ColorConverterView } from '../views/design/ColorConverterView';
 import { SvgView } from '../views/design/SvgView';
@@ -36,6 +40,8 @@ import { KeycodeView } from '../views/design/KeycodeView';
 import { GlassmorphismView } from '../views/design/GlassmorphismView';
 import { PaletteView } from '../views/design/PaletteView';
 import { CursorView } from '../views/design/CursorView';
+import { ClampView } from '../views/design/ClampView';
+import { AspectRatioCssView } from '../views/design/AspectRatioCssView';
 
 import { TextDiffView } from '../views/writing/TextDiffView';
 import { MarkdownPreviewView } from '../views/writing/MarkdownPreviewView';
@@ -43,10 +49,15 @@ import { LineSorterView } from '../views/writing/LineSorterView';
 import { LoremView } from '../views/writing/LoremView';
 import { SlugView } from '../views/writing/SlugView';
 import { TextAnalysisView } from '../views/writing/TextAnalysisView';
+import { TableView } from '../views/writing/TableView';
+import { ReadabilityView } from '../views/writing/ReadabilityView';
 
 import { NoteFrequencyView } from '../views/audio/NoteFrequencyView';
 import { TapTempoView } from '../views/audio/TapTempoView';
 import { TransposerView } from '../views/audio/TransposerView';
+
+import { ShutterView } from '../views/video/ShutterView';
+import { RecordTimeView } from '../views/video/RecordTimeView';
 
 import { BitrateView } from '../views/video/BitrateView';
 import { SafeAreaView } from '../views/video/SafeAreaView';
@@ -568,5 +579,118 @@ export function initializeTools(): void {
     keywords: ['pitch transposer', 'tape speed', 'playback rate', 'audio pitch'],
     component: TransposerView,
     icon: '🎚️',
+  });
+
+  // ==========================================
+  // Batch 4 Registrations (Tools 46 - 55)
+  // ==========================================
+  registerTool({
+    id: 'sql-formatter',
+    title: 'SQL Formatter & Beautifier',
+    description: 'Format and indent raw SQL queries with syntax structure and uppercase clause keywords',
+    category: 'dev',
+    tags: ['sql', 'format', 'beautify', 'database', 'query', 'mysql', 'postgres', 'dev'],
+    keywords: ['sql prettifier', 'sql indent', 'format sql query'],
+    component: SqlView,
+    icon: '🗄️',
+  });
+
+  registerTool({
+    id: 'user-agent-parser',
+    title: 'User Agent Inspector & Parser',
+    description: 'Inspect your active browser User Agent or parse arbitrary client strings into structured properties',
+    category: 'dev',
+    tags: ['user agent', 'browser', 'os', 'device', 'navigator', 'client', 'dev'],
+    keywords: ['ua parser', 'browser detection', 'device info', 'navigator.userAgent'],
+    component: UaView,
+    icon: '🕵️',
+  });
+
+  registerTool({
+    id: 'ascii-banner',
+    title: 'ASCII Text Banner Generator',
+    description: 'Generate retro ASCII block banners and typography headers for terminal scripts and code comments',
+    category: 'dev',
+    tags: ['ascii', 'banner', 'figlet', 'terminal', 'retro', 'text art', 'dev'],
+    keywords: ['ascii art', 'text banner', 'block letters', 'cli header'],
+    component: AsciiView,
+    icon: '🔤',
+  });
+
+  registerTool({
+    id: 'regex-tester',
+    title: 'RegEx Match Tester & Groups',
+    description: 'Test Regular Expressions in real-time with capture group extraction, flags, and match indices',
+    category: 'dev',
+    tags: ['regex', 'regexp', 'regular expression', 'test', 'pattern', 'match', 'dev'],
+    keywords: ['regex tester', 'regex match', 'capture groups', 'regexp flags'],
+    component: RegexView,
+    icon: '🔍',
+  });
+
+  registerTool({
+    id: 'clamp-calculator',
+    title: 'CSS Clamp() Fluid Typography Calculator',
+    description: 'Calculate fluid clamp() formulas for responsive typography and spacing across any viewport range',
+    category: 'design',
+    tags: ['clamp', 'css', 'fluid', 'typography', 'responsive', 'vw', 'rem', 'design'],
+    keywords: ['css clamp', 'fluid type', 'responsive font size', 'viewport math'],
+    component: ClampView,
+    icon: '📐',
+  });
+
+  registerTool({
+    id: 'aspect-ratio-css',
+    title: 'CSS Aspect-Ratio Rule Generator',
+    description: 'Generate modern CSS aspect-ratio properties and legacy padding-top container hack snippets',
+    category: 'design',
+    tags: ['aspect ratio', 'css', 'container', 'responsive', 'padding-top', 'tailwind', 'design'],
+    keywords: ['aspect-ratio', 'padding hack', 'responsive box', 'video ratio'],
+    component: AspectRatioCssView,
+    icon: '📐',
+  });
+
+  registerTool({
+    id: 'markdown-table',
+    title: 'Markdown Table Generator & Editor',
+    description: 'Design interactive tabular data with custom alignments and copy clean GitHub Flavored Markdown',
+    category: 'writing',
+    tags: ['markdown', 'table', 'gfm', 'grid', 'columns', 'rows', 'alignment', 'writing'],
+    keywords: ['markdown table', 'table generator', 'github table', 'ascii table'],
+    component: TableView,
+    icon: '📊',
+  });
+
+  registerTool({
+    id: 'readability-score',
+    title: 'Flesch Readability & Grade Level',
+    description: 'Evaluate reading ease, Flesch-Kincaid school grade level, and average sentence complexity metrics',
+    category: 'writing',
+    tags: ['readability', 'flesch', 'kincaid', 'grade level', 'syllables', 'ease', 'writing'],
+    keywords: ['flesch reading ease', 'grade level', 'reading score', 'text complexity'],
+    component: ReadabilityView,
+    icon: '📖',
+  });
+
+  registerTool({
+    id: 'shutter-calculator',
+    title: 'Shutter Speed & Shutter Angle (180° Rule)',
+    description: 'Calculate cinema shutter speed fractions from rotary shutter angles and framerates',
+    category: 'video',
+    tags: ['shutter', 'speed', 'angle', '180 degree', 'motion blur', 'cinema', 'camera', 'video', 'film'],
+    keywords: ['180 degree rule', 'shutter angle', 'exposure time', 'cinematography'],
+    component: ShutterView,
+    icon: '⏱️',
+  });
+
+  registerTool({
+    id: 'record-time-estimator',
+    title: 'Video Recording Time & Storage Estimator',
+    description: 'Calculate how many hours and minutes of footage can record onto your SD card, CFexpress, or SSD',
+    category: 'video',
+    tags: ['recording time', 'storage', 'sd card', 'ssd', 'prores', 'raw', 'bitrate', 'video', 'film'],
+    keywords: ['record time', 'card capacity', 'video storage', 'prores recording'],
+    component: RecordTimeView,
+    icon: '📼',
   });
 }
