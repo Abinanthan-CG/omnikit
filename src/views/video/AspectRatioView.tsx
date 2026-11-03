@@ -84,6 +84,13 @@ export const AspectRatioView: React.FC = () => {
           </div>
         </div>
 
+        {/* Error Alert */}
+        {!result.success && (
+          <div className="p-4 rounded-xl bg-red-950/20 border border-red-900/30 text-red-400 text-xs">
+            {result.error || 'Invalid width or height entered.'}
+          </div>
+        )}
+
         {/* Results Card */}
         {result.success && result.value && (
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 p-5 rounded-xl bg-neutral-950/80 border border-neutral-800">

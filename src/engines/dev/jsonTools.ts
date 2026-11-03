@@ -33,13 +33,14 @@ export function formatAndRepairJson(
   rawJson: string,
   indent: number = 2
 ): EngineResult<JsonResult> {
-  const trimmed = rawJson.trim();
-  if (!trimmed) {
+  if (typeof rawJson !== 'string' || !rawJson.trim()) {
     return {
       success: false,
       error: 'JSON string cannot be empty',
     };
   }
+
+  const trimmed = rawJson.trim();
 
   // 1. First attempt native JSON.parse
   try {
@@ -88,13 +89,20 @@ export function formatAndRepairJson(
     } catch {
       // Extract line/column error if possible
       let errorLocation: { line: number; column: number } | undefined;
-      const match = initialErr.message.match(/at position (\d+)/);
-      if (match) {
-        const pos = parseInt(match[1], 10);
+      const v8Match = initialErr.message.match(/at position (\d+)/);
+      const ffMatch = initialErr.message.match(/line (\d+) column (\d+)/i);
+
+      if (v8Match) {
+        const pos = parseInt(v8Match[1], 10);
         const lines = trimmed.slice(0, pos).split('\n');
         errorLocation = {
           line: lines.length,
           column: lines[lines.length - 1].length + 1,
+        };
+      } else if (ffMatch) {
+        errorLocation = {
+          line: parseInt(ffMatch[1], 10),
+          column: parseInt(ffMatch[2], 10),
         };
       }
 
@@ -102,10 +110,10 @@ export function formatAndRepairJson(
         success: false,
         error: `JSON Syntax Error: ${initialErr.message}`,
         value: {
-          formatted: rawJson,
+          formatted: '',
           isValid: false,
           wasRepaired: false,
-          byteSize: new TextEncoder().encode(rawJson).length,
+          byteSize: 0,
           errorLocation,
         },
       };

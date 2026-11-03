@@ -50,6 +50,13 @@ export const BpmView: React.FC = () => {
           </div>
         </div>
 
+        {/* Error Alert */}
+        {!result.success && (
+          <div className="p-4 rounded-xl bg-red-950/20 border border-red-900/30 text-red-400 text-xs">
+            {result.error || 'Invalid tempo entered. Please enter a positive BPM number.'}
+          </div>
+        )}
+
         {/* Timings Table */}
         {result.success && result.value && (
           <div className="space-y-6">

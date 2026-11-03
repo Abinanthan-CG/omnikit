@@ -37,6 +37,18 @@ describe('Timecode Engine', () => {
     assert.strictEqual(res.success, true);
     assert.strictEqual(res.value?.timecode, '00:01:00;02');
   });
+
+  it('rejects illegal frame rates such as 0, negative, NaN, and Infinity', () => {
+    assert.strictEqual(calculateTimecodeOperation('00:01:00:00', '+', '00:00:10:00', 0 as any).success, false);
+    assert.strictEqual(calculateTimecodeOperation('00:01:00:00', '+', '00:00:10:00', -24 as any).success, false);
+    assert.strictEqual(calculateTimecodeOperation('00:01:00:00', '+', '00:00:10:00', NaN as any).success, false);
+    assert.strictEqual(calculateTimecodeOperation('00:01:00:00', '+', '00:00:10:00', Infinity as any).success, false);
+  });
+
+  it('safely handles non-string timecode inputs', () => {
+    assert.strictEqual(calculateTimecodeOperation(null as any, '+', '00:00:10:00', 24).success, false);
+    assert.strictEqual(calculateTimecodeOperation('00:01:00:00', '+', undefined as any, 24).success, false);
+  });
 });
 
 describe('Aspect Ratio Engine', () => {
@@ -60,8 +72,10 @@ describe('Aspect Ratio Engine', () => {
     assert.strictEqual(res.value?.letterboxPadding.left, 0);
   });
 
-  it('rejects invalid dimensions', () => {
+  it('rejects invalid dimensions including 0, negative, and Infinity', () => {
     assert.strictEqual(calculateAspectRatio(0, 1080).success, false);
     assert.strictEqual(calculateAspectRatio(-100, 200).success, false);
+    assert.strictEqual(calculateAspectRatio(Infinity, 1080).success, false);
+    assert.strictEqual(calculateAspectRatio(1920, Infinity).success, false);
   });
 });

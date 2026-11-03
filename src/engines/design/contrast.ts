@@ -23,6 +23,7 @@ export interface WcagContrastResult {
 }
 
 export function hexToRgb(hex: string): RgbColor | null {
+  if (typeof hex !== 'string') return null;
   let clean = hex.trim().replace(/^#/, '');
   if (clean.length === 3) {
     clean = clean.split('').map(c => c + c).join('');

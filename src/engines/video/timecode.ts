@@ -16,6 +16,7 @@ export function isDropFrameFps(fps: number): boolean {
 }
 
 export function parseTimecodeParts(tc: string): { h: number; m: number; s: number; f: number; isDrop: boolean } | null {
+  if (typeof tc !== 'string') return null;
   const clean = tc.trim();
   const match = clean.match(/^(\d{2}):(\d{2}):(\d{2})[:;](\d{2})$/);
   if (!match) return null;
@@ -102,6 +103,13 @@ export function calculateTimecodeOperation(
   tc2: string,
   fps: SupportedFps = 24
 ): EngineResult<TimecodeResult> {
+  if (typeof fps !== 'number' || !Number.isFinite(fps) || fps <= 0) {
+    return {
+      success: false,
+      error: 'Frame rate must be a positive finite number',
+    };
+  }
+
   const parts1 = parseTimecodeParts(tc1);
   const parts2 = parseTimecodeParts(tc2);
 

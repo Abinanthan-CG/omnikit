@@ -30,6 +30,8 @@ describe('WCAG Contrast Engine', () => {
 
   it('rejects invalid hex codes', () => {
     assert.strictEqual(calculateWcagContrast('xyz', '#fff').success, false);
+    assert.strictEqual(calculateWcagContrast(null as any, '#fff').success, false);
+    assert.strictEqual(calculateWcagContrast('#fff', undefined as any).success, false);
   });
 });
 

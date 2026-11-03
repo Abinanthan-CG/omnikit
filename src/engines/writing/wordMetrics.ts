@@ -14,10 +14,11 @@ export interface TextMetricsResult {
 }
 
 export function analyzeTextMetrics(text: string): EngineResult<TextMetricsResult> {
-  const characters = text.length;
-  const charactersNoSpaces = text.replace(/\s/g, '').length;
+  const safeText = typeof text === 'string' ? text : '';
+  const characters = safeText.length;
+  const charactersNoSpaces = safeText.replace(/\s/g, '').length;
 
-  const trimmed = text.trim();
+  const trimmed = safeText.trim();
   const words = trimmed ? trimmed.split(/\s+/).filter(Boolean).length : 0;
 
   // Split sentences on .!? followed by whitespace or end of string

@@ -27,6 +27,7 @@ describe('BPM Delay & Reverb Engine', () => {
   it('rejects zero or negative BPM inputs', () => {
     assert.strictEqual(calculateBpmTimings(0).success, false);
     assert.strictEqual(calculateBpmTimings(-20).success, false);
+    assert.strictEqual(calculateBpmTimings(Infinity).success, false);
     assert.ok(calculateBpmTimings(0).error);
   });
 });

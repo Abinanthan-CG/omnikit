@@ -85,6 +85,13 @@ export const ContrastView: React.FC = () => {
           </div>
         </div>
 
+        {/* Error Alert */}
+        {!result.success && (
+          <div className="p-4 rounded-xl bg-red-950/20 border border-red-900/30 text-red-400 text-xs">
+            {result.error || 'Invalid color entry. Please enter a valid hex color code.'}
+          </div>
+        )}
+
         {/* Contrast Score & Compliance Badges */}
         {result.success && result.value && (
           <div className="space-y-4">

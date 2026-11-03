@@ -42,10 +42,17 @@ export function calculateAspectRatio(
   height: number,
   targetContainerRatio?: string
 ): EngineResult<AspectRatioResult> {
-  if (!width || !height || width <= 0 || height <= 0 || isNaN(width) || isNaN(height)) {
+  if (
+    !width ||
+    !height ||
+    !Number.isFinite(width) ||
+    !Number.isFinite(height) ||
+    width <= 0 ||
+    height <= 0
+  ) {
     return {
       success: false,
-      error: 'Width and height must be positive numbers',
+      error: 'Width and height must be positive finite numbers',
     };
   }
 
