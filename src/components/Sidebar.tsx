@@ -12,7 +12,8 @@ import {
   Volume2,
   X,
   PanelLeftClose,
-  PanelLeft
+  PanelLeft,
+  LayoutGrid
 } from 'lucide-react';
 import type { ToolDefinition, ToolCategory } from '../types/tool';
 import { ToolIcon } from './ToolIcon';
@@ -218,6 +219,29 @@ export const Sidebar: React.FC<SidebarProps> = ({
         ) : (
           /* Grouped Categories, Pinned & Recents */
           <>
+            {/* Studio Overview Navigation Link */}
+            <button
+              onClick={() => {
+                playTactileClick('click');
+                window.location.hash = '';
+                onCloseMobile();
+              }}
+              className={`w-full flex items-center justify-between px-2.5 py-2 rounded-lg text-left transition-colors relative group min-h-[36px] ${
+                activeToolId === null
+                  ? 'bg-neutral-800 text-neutral-100 font-semibold shadow-sm'
+                  : 'hover:bg-neutral-850/60 text-neutral-400 hover:text-neutral-200'
+              }`}
+            >
+              {activeToolId === null && (
+                <span className="absolute left-0 top-1.5 bottom-1.5 w-1 rounded-r bg-emerald-400" />
+              )}
+              <div className="flex items-center gap-2 min-w-0 pl-1">
+                <LayoutGrid className={`w-3.5 h-3.5 shrink-0 ${activeToolId === null ? 'text-emerald-400' : 'text-neutral-500'}`} />
+                <span className="truncate text-xs font-medium">Studio Overview</span>
+              </div>
+              <span className="text-[10px] font-mono text-neutral-500">⌘H</span>
+            </button>
+
             {/* Pinned / Favorites */}
             {pinnedTools.length > 0 && (
               <div className="space-y-1">
@@ -390,7 +414,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
       {/* Desktop Persistent Sidebar */}
       <aside
         className={`hidden md:block shrink-0 transition-all duration-200 h-[calc(100vh-3.5rem)] sticky top-14 ${
-          isCollapsed ? 'w-0 overflow-hidden border-none' : 'w-64 lg:w-72'
+          isCollapsed ? 'w-0 overflow-hidden border-none' : 'w-72 lg:w-80'
         }`}
       >
         {sidebarContent}

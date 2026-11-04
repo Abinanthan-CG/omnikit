@@ -112,8 +112,8 @@ export const Header: React.FC<HeaderProps> = ({
             </div>
           </button>
 
-          {/* Active Tool Breadcrumb */}
-          {activeToolTitle && activeTheme && (
+          {/* Active Tool Breadcrumb or Studio Mode */}
+          {activeToolTitle && activeTheme ? (
             <div className="flex items-center gap-1.5 text-xs min-w-0">
               <span className="text-neutral-700">/</span>
               <span className={`text-[9px] font-mono px-1.5 py-0.2 rounded border uppercase tracking-wider shrink-0 ${activeTheme.badgeClass}`}>
@@ -123,7 +123,33 @@ export const Header: React.FC<HeaderProps> = ({
                 {activeToolTitle}
               </span>
             </div>
+          ) : (
+            <div className="hidden sm:flex items-center gap-1.5 text-xs text-neutral-400">
+              <span className="text-neutral-700">/</span>
+              <span className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-neutral-900 text-emerald-400 border border-neutral-800">
+                Studio Workbench
+              </span>
+            </div>
           )}
+        </div>
+
+        {/* Center: Raycast Quick Search Pill on Desktop */}
+        <div className="hidden md:flex items-center flex-1 max-w-sm mx-4">
+          <button
+            onClick={() => {
+              playTactileClick('pop');
+              onOpenPalette();
+            }}
+            className="w-full flex items-center justify-between px-3 py-1.5 text-xs rounded-xl bg-neutral-900/80 hover:bg-neutral-850 border border-neutral-800 text-neutral-400 hover:text-neutral-200 hover:border-neutral-700 transition-all shadow-sm"
+          >
+            <div className="flex items-center gap-2">
+              <Terminal className="w-3.5 h-3.5 text-emerald-400" />
+              <span className="font-sans text-xs">Search 155 offline utilities...</span>
+            </div>
+            <kbd className="font-mono text-[10px] bg-neutral-800 text-neutral-400 px-1.5 py-0.5 rounded border border-neutral-700">
+              Ctrl+K
+            </kbd>
+          </button>
         </div>
 
         {/* Right Side: Quick Action Controls */}

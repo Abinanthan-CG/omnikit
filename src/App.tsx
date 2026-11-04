@@ -18,13 +18,7 @@ export default function App() {
   });
   const [isPaletteOpen, setIsPaletteOpen] = useState(false);
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
-  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState<boolean>(() => {
-    try {
-      return localStorage.getItem('omnikit_sidebar_collapsed') === 'true';
-    } catch {
-      return false;
-    }
-  });
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState<boolean>(false);
 
   const [pinnedIds, setPinnedIds] = useState<string[]>(() => {
     try {
